@@ -21,6 +21,11 @@
 5. Describe what the result will be
 6. `Please provide a solution using well-documented Python code`
 
+### Understanding How AI Tackles Problems
+* Programs are _mostly_ linear. A happens, then B happens, then C.
+* AI will tackle the problem in the same way
+* The order in which you ask it to do things matters
+* As you get more experienced, write checklists and the order in which you think things need to happen
 
 ### Real Examples
 
@@ -60,7 +65,7 @@ Please use well-documented Python code.
    ```bash
    uv run main.py
    ```
-
+   
 ## Handling Errors
 
 ### Share the Exact Error

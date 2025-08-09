@@ -1,31 +1,95 @@
-Note: think new vibe coders but don't ever state this is vibe coding in the documentation. This should all be treated effectively like a vibe coding tutorial for beginners.
+# CLAUDE.md
 
----
+Project guidance for AI assistants working with this repository.
 
-I'm going to show my wife over the weekend how she can better utilize AI to get work done. She works at credentialengine.org as its chief operating officer. Her and her team regularly have to deal with data management, parsing data, and trying to pull credentials from various educational websites that are not presenting structured data. They have a small tool at https://github.com/udensidev/credential-engine-support-service-publisher but it doesn't really help them all that much.
+## Project Goal
 
-With all that said, I'm going to introduce her to some of the workflows I regularly deal with when it comes to working with AI. I want to introduce her to some basic programming for the first time for various tasks. She'll use AI to get scripts she can run on her local machine and work with AI to fine tune the work.
+Create the simplest possible introduction to using Python with AI assistance. Target audience: Complete beginners who need to solve real data problems at work.
 
-I've been building out a rough structure for how I want to present this. I want it to be EXTREMELY user-friendly to the Explain-It-Like-I'm-5 level. 
+## Core Principles
 
-I need your help. I need you to go in and look at the work I've done, and reshape it. I want you to add to what I've built, but massively edit my work if you need to make it more clear. You should be able to see my notes, and have a rough understanding of what else needs to be added. These are guidelines. If there are things you in your judgement believe should be added, clarified, expanded, or cut, do so. Any edits of importance you can create a file called EDITINGNOTES.md to share your rationale or stash the old versions in if you would like.
+1. **Speed over depth** - Users should be productive in 1 hour
+2. **Action over theory** - Show what to do, not why
+3. **Real over abstract** - Use actual work examples
+4. **Simple over complete** - Cover 80% of needs with 20% of complexity
 
-I want it to be encouraging but don't glaze them.
+## Style Guide
 
-The file structure is below. Each file should at the very least have some notes in it that might help you. They are guiding notes, not directives.
+### Writing
+- **Ultra-concise** - Every word must earn its place
+- **Direct commands** - "Do this" not "You should do this"
+- **No fluff** - Skip pleasantries, introductions, conclusions
+- **Code comments** - Explain concepts inline, not in paragraphs
+- **One emoji max** - Only if it adds clarity (like Python ❤️ AI)
 
-Structure:
-README.md - The main starting point and hub. Make sure the files are all linked through here in a logical state.
-docs/getting-started.md - The simplest checklist imaginable to get started with Python. Keep this as simplistic as possible.
-docs/installation.md - Walk them through the simplest setup imaginable. They are on Windows 11.
-docs/editors.md - We want them to setup VSCode. We do not want to scare them at all.
-docs/the-basics.md - High level overview of some of the things they might want to do with Python. A little cheat sheet that should be simple. Think vibe coding levels of depth here.
-docs/learning-checklist.md - A list of the things you think they should learn about python, step-by-step, in order for them to become proficient with working with AI in a vibe coding-like environment.
-docs/how-to-use-with-ai.md - Create a document about how they can interact with AI (i.e. vibe code) in a manner that most benefits them (i.e. I have two files and I want XYZ from them). They will almost certainly be using the Chat interfaces to send requests and receive code. explain to them that how they will want to describe their problems, what they expect for a solve, and what they want the ai to provide (e.g. well documented python code using xyz tools)
-docs/starting-prompt.md - We will need a prompt that they can use to pre-seed conversations they have with AI. The prompt should include particulars about the environment the user is using (as we defined here), the tools available for use, the type of code we want back (i.e. well documented Python), and whatever else you can think of that would be useful for an AI to know. I don't know if AI wants to know the level of talent they are dealing with here.
+### Structure
+- **Clear headers** - Users scan, not read
+- **Short sections** - One concept per section
+- **Practical examples** - Real scenarios, not foo/bar
+- **Quick reference style** - Lists and code blocks dominate
 
-* Documents should logically link to their next obvious couterpart for effective workflow.
-* I tried adding "Why?" sections in the beginning, but I didn't add enough of them.  Format them in Markdown please. There should be asides/sidebars for as much as possible to explain the justifiction for why things are the way they are and what we are doing them. I don't know if Markdown is capable of supporting something like this...are they called infoboxes? I have no idea. I just know this text needs them.
-* This is all to be formatted for Github Markdown
-* I'm on the fence about where I inserted python notebooks. I feel like it could be useful, but I also worry it can clutter up their minds. I don't know if there is a place for it in the existing structure, if it should be it's own page, or if we should just omit it completely.
-* Finally, I have provided you with my wife's scenario, but anything specific to her company should go in a special credential-engine.md document you create at the root level. I think there is potential value in me using the work you create with members of my own company.
+### Code
+```python
+# Comments explain the concept right here
+name = "John"    # This style, not paragraphs above
+```
+
+## Document Purposes
+
+### Core Path (1 hour total)
+1. **first-steps.md** - Install uv and create project (10 min)
+2. **editors.md** - VSCode setup (10 min)
+3. **the-basics.md** - Recognize Python patterns (10 min)
+4. **how-to-use-with-ai.md** - Core skill: AI collaboration (20 min)
+5. **starting-prompt.md** - Template for AI conversations (10 min)
+
+### Supporting Docs
+- **about-uv.md** - Why uv instead of traditional Python
+- **advanced-uv.md** - Command reference for later
+- **learning-checklist.md** - Self-paced skill progression
+- **additional-tools-and-resources.md** - Next steps when ready
+
+### Special
+- **credential-engine.md** - Specific guidance for CE team
+
+## What NOT to Do
+
+- Don't explain programming concepts in depth
+- Don't add "why" sections unless critical for understanding
+- Don't write verbose explanations
+- Don't add multiple navigation links
+- Don't use emoji decorations
+- Don't create new documents unless essential
+
+## Key Messages
+
+1. You're not learning to program, you're learning to direct AI
+2. Python is just the language AI speaks best
+3. Errors are normal, AI helps fix them
+4. Start working immediately, learn by doing
+
+## Technical Choices
+
+- **uv** - Fastest, simplest Python management
+- **VSCode** - Free, popular, AI understands it
+- **Windows 11** - Primary target platform
+- **PowerShell** - Default terminal
+
+## Success Metrics
+
+User can:
+1. Install everything in 30 minutes
+2. Run first script in 45 minutes
+3. Solve a real problem in 2 hours
+4. Feel confident asking AI for help
+
+## Maintenance Notes
+
+- Keep all examples Windows-compatible
+- Test commands before documenting
+- Update package lists quarterly
+- Maintain Custom GPT alignment with prompts
+
+## Remember
+
+This isn't a programming tutorial. It's a guide to getting work done with AI assistance. Every decision should optimize for speed to productivity, not depth of understanding.
