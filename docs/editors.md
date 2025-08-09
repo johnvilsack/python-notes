@@ -1,55 +1,69 @@
-## Development
-Python code can be edited in any text editor. VS Code is a free and popular choice.
+# Setting Up VSCode
 
-### Install VS Code Editor
-* [Install and Run Visual Studio Code](https://code.visualstudio.com/)
-* On left sidebar, open Extensions
-  * Install Python
-* ```Ctrl+Shift+P``` to open Command Palette
-  * Type ```Python Select Intrepreter``` and point to your app directory.
-  Why? This tells VSCode where your Python and packages live
-<Do we explain terminal here or is that too much for covering the absolute basics?>
-<Do we include adding code to path?>
-### Python Notebooks
-A Python notebook is like a digital lab notebook where you can mix:
+Time: 10 minutes
 
-* Code (Python you can run right there)
-* Results (plots, tables, numbers)
-* Notes (plain text, explanations, formulas)
+## Step 1: Install VSCode
 
-All in one scrolling document.
+1. **Download VSCode**
+   - Go to [code.visualstudio.com](https://code.visualstudio.com/)
+   - Click the big download button
+   - Run the installer
+   - Keep clicking "Next" (default options are fine)
 
-Instead of running a whole program start-to-finish in a terminal, you can run one chunk (“cell”) at a time, see the result immediately, tweak it, and keep going — like building a Lego set piece by piece and seeing it take shape.
+> **Why VSCode?** Free. Popular. AI understands it well. Has everything built-in.
 
-Scientists, data analysts, and teachers love them because you can explain what you’re doing right next to the code that does it.
+## Step 2: Add Python Support
 
-#### Using Python Notebooks
-* To create a notebook, create a file with the file extension ```.ipynb```
-* Opening the file in VS Code will automatically enable the notebook
+1. **Open VSCode**
 
-#### Jupyter Notebooks
-<insert here>
-<install jupyter in vscode?>
-Use JupyterLab
-```uv pip install jupyterlab && jupyter lab```
-To run:
-```uv run jupyter lab```
--or-
-* <vs code install and run instructions>
+2. **Install Python Extension**
+   - Click Extensions icon on left (looks like 4 squares)
+   - Search "Python"
+   - Click "Install" on the first result (by Microsoft)
+   - Wait 30 seconds
 
+## Step 3: Open Your Project
 
-# Edit your App
-Open main.py
-Enter
+1. **Open your HelloPython folder**
+   - File → Open Folder
+   - Navigate to Documents → MyPythonWork → HelloPython
+   - Click "Select Folder"
 
-```python
+2. **Trust the folder**
+   - Click "Yes, I trust the authors" when asked
 
-# Define your first function - what you use to run code
-def main():
-    # Outputs Hello, world! to the screen
-    print("Hello, world!")
+## Step 4: Configure Python
 
-# Tells Python (if the name of the file is main, then run the function main)
-if __name__ == "__main__":
-    main()
-```
+1. **Tell VSCode which Python to use**
+   - Press `Ctrl+Shift+P`
+   - Type "Python: Select Interpreter"
+   - Choose the one that mentions "HelloPython"
+
+> **Why this step?** VSCode needs to know which Python to use for your project.
+
+## Step 5: Open the Terminal
+
+1. **View → Terminal**
+   - This opens a command area at the bottom
+   - This is where you'll run your scripts
+
+## Test It Works
+
+1. **Open main.py** (should already exist)
+2. **In the terminal, type:**
+   ```
+   uv run main.py
+   ```
+3. **You should see output**
+
+## Quick Terminal Commands
+
+- `uv run main.py` - Runs your Python file
+- `Ctrl+C` - Stops a running program
+- `cls` - Clears the terminal screen
+
+## Success!
+
+If you can see your code and run it from the terminal, you're all set.
+
+**Next: [Learn Python Basics](the-basics.md)** →

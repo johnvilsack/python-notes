@@ -1,19 +1,27 @@
-# My Python Starting Checklist
-## [Installation](installation.md)
-[] Install uv
-[] Install Python
-[] Initialize First App ```uv init HelloPython```
-[] Install Packages
-[] Run App for First Time ```uv run main.py```
+# Getting Started Checklist
 
-## [Editing](docs/editors.md)
-[] Install VSCode
-[] Add Python Extension
-[] Point to Python Interpreter
-[] <Optional, add Code to path?>
-[] Open main.py
-[] Edit main.py ```code main.py```
+## [Install Python](installation.md)
+  - [ ] [Read installation guide](installation.md)
+  - [ ] Install uv (Python manager)
+  - [ ] Start your first project
 
-## Executing Your Code
-[] Run main.py ```uv run main.py```
-[] Importing Packages
+## [Setup Editor](editors.md)
+  - [ ] [Read editors guide](editors.md)
+  - [ ] Download, Install, and Run VS Code
+  - [ ] Add Python extension
+  - [ ] Configure Python
+  - [ ] Open your project
+
+## Test It Out
+  - [ ] In VSCode, create `main.py`
+  - [ ] `print("Hello")`
+  - [ ] Save the file
+  - [ ] Open terminal in VSCode (View → Terminal)
+  - [ ] `uv run main.py`
+  - [ ] See "Hello" appear
+  - [ ] 
+## Success!
+
+If you see "Hello" in your terminal, you're ready.
+
+**Next: [Learn Python Basics](the-basics.md)** →

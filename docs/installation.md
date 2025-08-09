@@ -1,44 +1,71 @@
-# Python First Steps
-These is the highest possible overview of setting up and using Python.
+# Installing Python (Windows 11)
 
-## Installation
+Time: 10 minutes
 
-### Windows
-* Run the following command to install the Python uv package manager
-  ```powershell -c "iwr https://astral.sh/uv/install.ps1 -UseBasicParsing | iex"```
+## Step 1: Install uv
 
-* Now use uv to install Python
-  ```uv python install --default```
+uv manages Python for you. One tool, no confusion.
 
-### Bootstrap You App
+1. **Open PowerShell as Administrator**
+   - Right-click Start button
+   - Click "Terminal (Admin)"
+   - Click "Yes" when asked
 
-* Our example is 'HelloPython'
-  ```
-  uv init HelloPython
-  cd HelloPython
-  ```
-  Why?
-    1. Creates the HelloPython directory
-    2. Adds important metadata files
-    3. Creates the main.py file, the starting point in your app
+2. **Install uv**
+   - Copy and paste this command:
+   ```powershell
+   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+   ```
+   - Press Enter
+   - Wait for "uv installed successfully"
+
+3. **Close and reopen Terminal**
+   - This makes uv available
+
+> **Why uv?** It's 10-100x faster than pip. Handles everything automatically. No Python version headaches.
+
+## Step 2: Create Your First Project
+
+1. **Make a folder for your work**
+   ```powershell
+   cd Documents
+   mkdir MyPythonWork
+   cd MyPythonWork
+   ```
+
+2. **Initialize your first project**
+   ```powershell
+   uv init HelloPython
+   cd HelloPython
+   ```
+
+3. **Test it works**
+   ```powershell
+   uv run main.py
+   ```
    
-### Installing Packages
-Python packages are libraries that speed up development
+   You should see: `Hello from hello-python!`
 
-```
-uv add pandas pydantic beautifulsoup4 playwright
-python -m playwright install
-```
-Why? This installs the packages most useful
-  **[pandas](<link to pandas>)*** <what pandas does>
-  <do the rest>
-What packages do:
-requests for uris
-Playwright (selectors, waits), 
-pandas (joins, cleaning), 
-Beautiful Soup (HTML parsing).
-pandas for wrangling, 
-Beautiful Soup/Playwright for scraping, 
-pydantic for validation
+> **Why a project folder?** Keeps your work organized. Each script gets its own space.
 
-<SPLIT OFF EDITORS TO OWN FILE. REDO THE HEADINGS OF EDITORS TO MATCH ITS OWN FILE>
+## Common Issues
+
+**"uv is not recognized"**
+- You forgot to close and reopen Terminal
+
+**"Access denied" errors**
+- Make sure you opened Terminal as Administrator
+
+**"Script cannot be loaded"**
+- Normal on Windows. The install command above handles this.
+
+## Success Check
+
+Run this command:
+```powershell
+uv --version
+```
+
+If you see a version number, you're ready!
+
+**Next: [Install VSCode Editor](editors.md)** →
