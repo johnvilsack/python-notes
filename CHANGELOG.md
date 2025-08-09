@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.23] - 2025-08-09
+- FIX: tab spacing test
+
 ## [3.1.22] - 2025-08-09
 - FIX: spacing test
 
