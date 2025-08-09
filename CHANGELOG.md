@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.0.0] - 2025-08-09
+- MAJOR: aio script ready
+
 ## [2.6.0] - 2025-08-09
 - MINOR: AIO script refactoring
 

@@ -37,5 +37,5 @@ powershell -ExecutionPolicy Bypass -c "irm https://raw.githubusercontent.com/joh
 To run a test version of the AIO, run:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -c "irm https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-notes-bootstrap.ps1 | iex"
+powershell -ExecutionPolicy Bypass -c "$s=irm https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-notes-bootstrap.ps1; iex $s; Start-PythonNotesBootstrap -WhatIf"
 ```
