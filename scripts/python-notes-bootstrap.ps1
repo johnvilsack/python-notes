@@ -124,7 +124,7 @@ print("Hello, python-notes!")
     'notebook','ipykernel'
   )
   Write-Host "Adding packages with uv: $($packages -join ', ')" -ForegroundColor Cyan
-  uv add @packages | Out-Null
+  uv add @($packages) | Out-Null
 
   Write-Host "Syncing environment (.venv)..." -ForegroundColor Cyan
   uv sync | Out-Null
@@ -213,7 +213,7 @@ print("Hello, python-notes!")
       Write-Host "Opening VS Code workspace..." -ForegroundColor Cyan
       Invoke-Quiet { code $wsPath .\main.py .\notebook.ipynb }
     } else {
-      Write-Warning "VS Code is installed but 'code' is not on PATH for this session. Re-open terminal or run: `$env:Path += ';$HOME\AppData\Local\Programs\Microsoft VS Code\bin'' and re-run 'code'."
+      Write-Warning "VS Code is installed but 'code' is not on PATH for this session. Re-open terminal or run: `"`$env:Path += ';`$HOME\AppData\Local\Programs\Microsoft VS Code\bin'`" and re-run 'code'."
     }
   }
 
