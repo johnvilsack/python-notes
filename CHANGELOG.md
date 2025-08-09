@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.4] - 2025-08-09
+- FIX: switch to hacker theme
+
 ## [3.1.3] - 2025-08-09
 - FIX: theme
 
