@@ -1,11 +1,11 @@
 title: Python Notes
 description: You tell AI what you want. AI writes Python code. You run it. Problems get solved.
-theme: primer
 markdown: kramdown
 highlighter: rouge
-
+remote_theme: pages-themes/primer@v0.6.0
 plugins:
   - jekyll-relative-links
+  - jekyll-remote-theme
 
 relative_links:
   enabled: true
