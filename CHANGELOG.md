@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.9] - 2025-08-09
+- FIX: getting-started page
+
 ## [3.1.8] - 2025-08-09
 - FIX: bottom links
 
