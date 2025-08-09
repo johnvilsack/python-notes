@@ -125,6 +125,14 @@ python -m ensurepip
 
 Global Python works but uv is easier for real projects.
 
+<br>
+
 ---
+
+<br>
+
 **[← Back to Additional Tools](additional-tools-and-resources.md)**
+
+<br>
+
 **[← Back to Home](../README.md)**

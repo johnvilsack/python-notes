@@ -69,5 +69,10 @@ I need help with Python scripting. Here's my setup:
 - Includes info about your setup and workflow
 - Outlines what you expect to receive back
 
+<br>
+
 ---
-**Next: [Additional Tools and Resources →](additional-tools-and-resources.md)**
+
+<br>
+
+## **Next: [Additional Tools and Resources →](additional-tools-and-resources.md)**

@@ -53,6 +53,8 @@ uv add openpyxl
 
 ---
 
+<br>
+
 **[← Back to Checklist](getting-started.md)**
 
 <br>

@@ -45,4 +45,6 @@ You can run the install without admin privileges, but there may be issues with t
 
 ---
 
+<br>
+
 ## **Next: [Install VSCode Editor →](editors.md)**

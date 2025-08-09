@@ -51,5 +51,10 @@ Project2/
 
 - See [Install Python Globally](install-python.md)
 
+<br>
+
 ---
+
+<br>
+
 **[← Back to First Steps](first-steps.md)** | **[Advanced uv →](advanced-uv.md)**

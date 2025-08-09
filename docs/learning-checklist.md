@@ -66,6 +66,14 @@
 - [ ] Build a website testing tool
 - [ ] Create a tool your team uses
 
+<br>
+
 ---
+
+<br>
+
 **[← Back to Getting Started Checklist](../getting-started.md)**
+
+<br>
+
 **[← Back to Home](../README.md)**

@@ -129,5 +129,10 @@ How do I fix this?
 
 **You:** "Perfect! It found 5 files and combined them"
 
+<br>
+
 ---
-**Next: [Working with Prompts →](starting-prompt.md)**
+
+<br>
+
+## **Next: [Working with Prompts →](starting-prompt.md)**
