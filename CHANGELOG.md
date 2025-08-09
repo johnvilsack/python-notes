@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.6.0] - 2025-08-09
+- MINOR: AIO script refactoring
+
 ## [2.5.0] - 2025-08-09
 - MINOR: Final pass on content, refined AIO script
 
