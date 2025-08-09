@@ -48,9 +48,13 @@ uv add openpyxl
 
 - **[Python Cheat Sheet](https://www.pythoncheatsheet.org/)** - Quick syntax lookup
 - **[DevDocs](https://devdocs.io/python/)** - Searchable documentation
-<br><br>
----
-<br><br>
-**[← Back to Checklist](getting-started.md)**
+
 <br>
+
+---
+
+**[← Back to Checklist](getting-started.md)**
+
+<br>
+
 **[← Back to Home](../README.md)**
