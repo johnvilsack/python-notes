@@ -1,6 +1,6 @@
 # Python Basics
 
-You don't need to write Python. You just need to recognize what AI gives you.
+You don't need to write Python. You just need to recognize what AI gives you. Here's a brief overview just to give you a feel for what you're working with.
 
 ## What Python Looks Like
 
