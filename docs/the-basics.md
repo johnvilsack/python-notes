@@ -1,0 +1,1 @@
+<add absolute basic python overview here. They ran Hello World, now give them a simple taste. Show them how to import the tools we had them install and give them the basics how you might use them. As with everything else, keep it very very high level, short, and ELI5>

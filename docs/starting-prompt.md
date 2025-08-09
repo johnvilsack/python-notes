@@ -1,0 +1,1 @@
+<generate a starting prompt that users can prepopulate in an AI conversation so that the AI undestands the environment the person is working in (windows 11, python version at least whatever the current version is, what packages we've got installed in this documentation, we're using terminal and vs code, etc.)>
