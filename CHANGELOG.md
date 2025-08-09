@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.5] - 2025-08-09
+- FIX: modifications to front page, created custom-gpt.md
+
 ## [3.1.4] - 2025-08-09
 - FIX: switch to hacker theme
 

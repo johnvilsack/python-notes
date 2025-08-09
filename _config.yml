@@ -1,8 +1,8 @@
 title: Python Notes
-description: You tell AI what you want. AI writes Python code. You run it. Problems get solved.
 markdown: kramdown
 highlighter: rouge
 remote_theme: pages-themes/hacker@v0.2.0
+show_downloads: false
 plugins:
   - jekyll-relative-links
   - jekyll-remote-theme
