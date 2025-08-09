@@ -18,4 +18,7 @@ Use this [checklist here](docs/getting-started.md) to track your progress.
 
 ## Extended Learning
 
-- **[Learning Checklist](docs/learning-checklist.md)** - A list of goals to achieve
+- **[Learning Checklist](docs/learning-checklist.md)** - Track your progress
+
+## Extras
+- **[Install Scripts](installers.md)** - Skip setup, start coding

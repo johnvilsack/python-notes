@@ -91,25 +91,13 @@ function Install-GlobalPackages {
     
     $packages = @(
         'pandas',           # Data manipulation
-        'numpy',            # Numerical computing
         'pydantic',         # Data validation
         'beautifulsoup4',   # Web scraping
         'playwright',       # Browser automation
         'requests',         # HTTP library
         'openpyxl',         # Excel files
         'notebook',         # Jupyter notebooks
-        'ipykernel',        # Jupyter kernel
-        'matplotlib',       # Plotting
-        'seaborn',          # Statistical plots
-        'scipy',            # Scientific computing
-        'scikit-learn',     # Machine learning
-        'pillow',           # Image processing
-        'python-dotenv',    # Environment variables
-        'rich',             # Terminal formatting
-        'typer',            # CLI apps
-        'httpx',            # Modern HTTP client
-        'polars',           # Fast dataframes
-        'xlsxwriter'        # Excel writer
+        'ipykernel'         # Jupyter kernel
     )
 
     Write-Host "Packages to install: $($packages -join ', ')" -ForegroundColor Gray
@@ -161,28 +149,7 @@ function Add-PythonToSystemPath {
     }
 }
 
-function Install-UsefulTools {
-    Write-Host "`nInstalling additional Python tools..." -ForegroundColor Cyan
-    
-    $tools = @(
-        @{name='ruff'; desc='Fast Python linter'},
-        @{name='black'; desc='Code formatter'},
-        @{name='mypy'; desc='Static type checker'},
-        @{name='poetry'; desc='Dependency management'},
-        @{name='pipx'; desc='Install Python applications'},
-        @{name='pre-commit'; desc='Git hook framework'}
-    )
-
-    foreach ($tool in $tools) {
-        Write-Host "  Installing $($tool.name) ($($tool.desc))..." -NoNewline
-        try {
-            uv tool install $tool.name --force 2>&1 | Out-Null
-            Write-Host " ✓" -ForegroundColor Green
-        } catch {
-            Write-Host " ✗" -ForegroundColor Red
-        }
-    }
-}
+# Removed Install-UsefulTools - not needed for tutorial scope
 
 function Show-PostInstallInfo {
     Write-Host "`n" + "="*60 -ForegroundColor Cyan
@@ -193,8 +160,8 @@ function Show-PostInstallInfo {
     Write-Host "  • Python $PythonVersion (global)"
     Write-Host "  • uv package manager"
     if (-not $SkipPackages) {
-        Write-Host "  • Data science packages (pandas, numpy, etc.)"
-        Write-Host "  • Development tools (ruff, black, mypy, etc.)"
+        Write-Host "  • Core packages (pandas, requests, beautifulsoup4, etc.)"
+        Write-Host "  • Jupyter notebook support"
     }
     
     Write-Host "`nVerify Installation:" -ForegroundColor Yellow
@@ -229,7 +196,6 @@ try {
     
     if (-not $SkipPackages) {
         Install-GlobalPackages
-        Install-UsefulTools
     }
     
     Add-PythonToSystemPath

@@ -1,0 +1,27 @@
+name,email,department,salary,start_date
+Alice Johnson,alice.j@company.com,Engineering,95000,2021-03-15
+Bob Smith,bob.smith@company.com,Sales,65000,2022-01-10
+Carol Williams,carol.w@company.com,Engineering,88000,2020-06-01
+David Brown,david.b@company.com,Marketing,72000,2021-09-20
+Emma Davis,emma.davis@company.com,Engineering,105000,2019-11-05
+Frank Miller,frank.m@company.com,Sales,58000,2023-02-14
+Grace Wilson,grace.w@company.com,HR,67000,2022-05-30
+Henry Moore,henry.moore@company.com,Engineering,92000,2020-12-10
+Iris Taylor,iris.t@company.com,Marketing,69000,2021-07-15
+Jack Anderson,jack.a@company.com,Sales,71000,2022-03-25
+Karen Thomas,karen.thomas@company.com,HR,64000,2023-01-08
+Leo Jackson,leo.j@company.com,Engineering,98000,2019-08-20
+Maria White,maria.white@company.com,Marketing,75000,2020-10-12
+Nathan Harris,nathan.h@company.com,Sales,62000,2021-04-18
+Olivia Martin,olivia.m@company.com,Engineering,110000,2018-09-03
+Paul Garcia,paul.garcia@company.com,HR,70000,2022-11-22
+Quinn Rodriguez,quinn.r@company.com,Sales,68000,2020-07-07
+Rachel Lewis,rachel.l@company.com,Engineering,87000,2021-02-28
+Sam Walker,sam.walker@company.com,Marketing,73000,2019-12-15
+Tina Hall,tina.h@company.com,HR,66000,2022-08-10
+Uma Allen,uma.allen@company.com,Engineering,93000,2020-04-05
+Victor Young,victor.y@company.com,Sales,60000,2023-03-12
+Wendy King,wendy.king@company.com,Marketing,71000,2021-06-25
+Xavier Wright,xavier.w@company.com,Engineering,102000,2019-10-30
+Yara Lopez,yara.l@company.com,HR,68500,2022-09-05
+Zoe Hill,zoe.hill@company.com,Sales,64500,2021-11-18

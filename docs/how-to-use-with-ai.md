@@ -15,19 +15,18 @@
 
 ### Good Request Structure
 
-1. `I need a Python script that can...`
-2. Explain what you expect it will do -or- what you are trying to solve.
-3. Describe what you have
-4. Describe what you need
-5. Describe what the result will be
-6. `Please provide a solution using well-documented Python code`
+```
+I need a Python script that [DOES THIS].
+Input: [WHAT YOU HAVE]
+Output: [WHAT YOU WANT]
+Please use well-documented Python code.
+```
 
-### Understanding How AI Tackles Problems
+### Think Step-by-Step
 
-- Programs are _mostly_ linear. A happens, then B happens, then C.
-- AI will tackle the problem in the same way
-- The order in which you ask it to do things matters
-- As you get more experienced, write checklists and the order in which you think things need to happen
+- Programs run in order: A → B → C
+- Tell AI the steps in the right sequence
+- Break complex tasks into smaller pieces
 
 ### Real Examples
 
@@ -108,12 +107,11 @@ How do I fix this?
 
 **Good:** Copy and paste screen output, especially errors; provide samples of the output that is incorrect
 
-### Better Debugging
+### Debug Tips
 
-Ask AI to:
-1. Tell AI to print verbose output for debugging
-2. When troubleshooting, ask it to process only the first few lines to cut down on processing time
-3. If you still have problems, ask AI to create 'Step-Through' code so you can confirm each step
+- Ask for verbose output
+- Test with small samples first
+- Request step-by-step code if stuck
 
 ## Example: Conversation Flow
 

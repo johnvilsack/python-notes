@@ -26,12 +26,12 @@ cd MyPythonWork
 # Bootstrap project
 uv init
 
-# Test it by running program - This installs Python automatically into your project!
+# Test it - uv installs Python automatically!
 uv run main.py
 ```
 You should see: `Hello from hello-python!`
 
-> Initializing a project creates all the necessary metadata files uv needs to manage your project. Each project tracks its own version of Python and the packages you need to run it. You can [learn more about uv here](about-uv.md).
+> Why uv? Each project gets its own Python and packages. No conflicts. [Learn more](about-uv.md).
 
 ## Note
 

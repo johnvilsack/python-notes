@@ -1,6 +1,6 @@
 # Python Basics
 
-You don't need to write Python. You just need to recognize what AI gives you. Here's a brief overview just to give you a feel for what you're working with.
+You don't write Python. You just need to recognize what AI gives you.
 
 ## What Python Looks Like
 
@@ -16,36 +16,32 @@ print(f"Hello {name}")          # Shows: Hello John
 
 ## Core Concepts
 
-### Variables: Data Values That Change
+### Variables - Storage Boxes
 ```python
 file_path = "data.csv"          # Stores text
 row_count = 1000               # Stores number
 ```
 
-### Lists: Sets of Data Values
+### Lists - Multiple Items
 ```python
 files = ["doc1.pdf", "doc2.pdf", "doc3.pdf"]
 ```
 
-### Functions - Where Things Happen
+### Functions - Action Blocks
 ```python
-# Define function called process_file that expects data called filename
-def process_file(filename):     # Define action
-    # <CODE THAT DOES STUFF GOES HERE>
-    
-    # returns back something called result
+def process_file(filename):     # Define what to do
+    # Do something
     return result
 
-# This is how you call the function called process_file and supply it with the expected filename
-process_file("data.csv")        # Use action
+process_file("data.csv")        # Actually do it
 ```
-### Loops - When You Want to Do Things to a List of Values
+### Loops - Repeat for Each Item
 ```python
 for file in files:              # Do something to each
     print(file)
 ```
 
-### If/Then - If This, Then Do That Decisions
+### If/Then - Decisions
 ```python
 if age > 18:
     print("Adult")

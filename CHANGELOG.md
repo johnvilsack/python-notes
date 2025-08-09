@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.5.0] - 2025-08-09
+- MINOR: Final pass on content, refined AIO script
+
 ## [2.4.0] - 2025-08-09
 - MINOR: Python global installer script and fixes to AIO script
 

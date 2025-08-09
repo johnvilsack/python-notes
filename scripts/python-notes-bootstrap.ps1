@@ -137,20 +137,46 @@ print("Hello, python-notes!")
   $nb = @{
     "cells" = @(
       @{
-        "cell_type"="markdown";"metadata"=@{};"source"=@("# python-notes bootstrap")
+        "cell_type"="markdown";"metadata"=@{};"source"=@("# Python Notes - Getting Started", "", "Run each cell with Shift+Enter")
       },
       @{
         "cell_type"="code";"execution_count"=$null;"metadata"=@{};
         "outputs"=@();
         "source"=@(
+"# Check our packages are installed",
 "import sys",
 "import pandas as pd",
 "import pydantic",
 "from bs4 import BeautifulSoup",
-"import requests, openpyxl",
+"import requests",
+"import openpyxl",
+"",
 "print('Python:', sys.version)",
 "print('pandas:', pd.__version__)",
-"print('pydantic:', pydantic.__version__)"
+"print('pydantic:', pydantic.__version__)",
+"print('All packages ready!')"
+        )
+      },
+      @{
+        "cell_type"="markdown";"metadata"=@{};"source"=@("## Quick Example - Load the sample data")
+      },
+      @{
+        "cell_type"="code";"execution_count"=$null;"metadata"=@{};
+        "outputs"=@();
+        "source"=@(
+"# Load employee data",
+"df = pd.read_csv('example-data/example-employees.csv')",
+"df.head()  # Show first 5 rows"
+        )
+      },
+      @{
+        "cell_type"="code";"execution_count"=$null;"metadata"=@{};
+        "outputs"=@();
+        "source"=@(
+"# Find high earners",
+"high_earners = df[df['salary'] > 90000]",
+"print(f'Found {len(high_earners)} employees making over `$90k:')",
+"high_earners[['name', 'department', 'salary']]"
         )
       }
     );
@@ -162,6 +188,46 @@ print("Hello, python-notes!")
   } | ConvertTo-Json -Depth 6
 
   $nb | Set-Content -Encoding UTF8 .\notebook.ipynb
+  
+  # Download examples.py and sample data from repo
+  Write-Host "Downloading example files..." -ForegroundColor Cyan
+  
+  # Create data folder
+  New-Item -ItemType Directory -Force -Path .\example-data | Out-Null
+  
+  # Download files from GitHub repo
+  $repoBase = "https://raw.githubusercontent.com/johnvilsack/python-notes/main/downloads"
+  
+  try {
+    # Get examples.py
+    $examplesUrl = "$repoBase/examples.py"
+    Invoke-WebRequest -Uri $examplesUrl -OutFile .\examples.py -UseBasicParsing
+    Write-Host "  ✓ Downloaded examples.py" -ForegroundColor Green
+  } catch {
+    Write-Warning "Could not download examples.py from repo"
+    # Create minimal fallback
+    @'
+# Examples file
+print("Run examples to see what each package can do!")
+print("Check the python-notes repo for the full examples.py")
+'@ | Set-Content -Encoding UTF8 .\examples.py
+  }
+  
+  try {
+    # Get employees.csv
+    $csvUrl = "$repoBase/example-employees.csv"
+    Invoke-WebRequest -Uri $csvUrl -OutFile .\example-data\example-employees.csv -UseBasicParsing
+    Write-Host "  ✓ Downloaded sample data (example-employees.csv)" -ForegroundColor Green
+  } catch {
+    Write-Warning "Could not download example-employees.csv from repo"
+    # Create minimal fallback CSV
+    @'
+name,email,department,salary,start_date
+Alice Johnson,alice@company.com,Engineering,95000,2021-03-15
+Bob Smith,bob@company.com,Sales,65000,2022-01-10
+Carol Williams,carol@company.com,Engineering,88000,2020-06-01
+'@ | Set-Content -Encoding UTF8 .\example-data\example-employees.csv
+  }
 
   # VS Code settings + workspace
   New-Item -ItemType Directory -Force -Path .\.vscode | Out-Null
@@ -211,7 +277,7 @@ print("Hello, python-notes!")
   if (-not $SkipVSCodeOpen) {
     if (Get-Command code -ErrorAction SilentlyContinue) {
       Write-Host "Opening VS Code workspace..." -ForegroundColor Cyan
-      Invoke-Quiet { code $wsPath .\main.py .\notebook.ipynb }
+      Invoke-Quiet { code $wsPath .\main.py .\examples.py .\notebook.ipynb }
     } else {
       Write-Warning "VS Code is installed but 'code' is not on PATH for this session. Re-open terminal or run: `"`$env:Path += ';`$HOME\AppData\Local\Programs\Microsoft VS Code\bin'`" and re-run 'code'."
     }

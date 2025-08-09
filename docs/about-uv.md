@@ -2,7 +2,7 @@
 
 ## What is uv?
 
-A single tool that manages Python for you. No more juggling multiple programs.
+One tool that manages Python. No juggling.
 
 ## Why Not Just Install Python?
 
@@ -21,17 +21,10 @@ A single tool that manages Python for you. No more juggling multiple programs.
 
 ## What uv Actually Does
 
-When you run `uv init`:
-- Creates project structure
-- Sets up Python environment
-- Manages all dependencies
+`uv init` = Set up project
+`uv run main.py` = Run code (installs Python/packages automatically)
 
-When you run `uv run main.py`:
-- Installs Python automatically! (if needed)
-- Installs missing packages
-- Runs your script
-
-uv isolates projects using **virtual environments** (.venv). You can run different versions of software at the same time without conflict.
+Each project is isolated. No conflicts.
 
 ```
 Project1/

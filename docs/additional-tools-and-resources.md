@@ -2,8 +2,8 @@
 
 ## Additional Content in this Wiki
 
-- **[Advanced uv](advanced-uv.md)** - Great reference for learning more about uv
-- **[Install Python](install-python.md)** - Use Python globally on your computer without a manager
+- **[Advanced uv](advanced-uv.md)** - uv command reference
+- **[Install Python](install-python.md)** - Global Python install
 
 ## Common Packages You'll Need
 
@@ -34,18 +34,15 @@ uv add openpyxl
 
 ## More Tools
 
-**GitHub Desktop** - Save versions of your code
-- Why: Never lose working code again
-- Download: [desktop.github.com](https://desktop.github.com)
+**GitHub Desktop** - Save code versions
+- [desktop.github.com](https://desktop.github.com)
 
-**Claude Code** - AI that can edit files directly (NOT JUST FOR CODING!)
-- Why: No more copy-paste between AI and files
-- Get it: [claude.ai/code](https://claude.ai/code)
+**Claude Code** - AI edits files directly
+- [claude.ai/code](https://claude.ai/code)
   
-**Jupyter Notebooks** - Interactive Python documents
-- Why: See results immediately, great for data exploration
-- When: When want to go step-by-step through a project
-- Install: `uv add jupyter notebook`
+**Jupyter Notebooks** - Interactive Python
+- Step-by-step code execution
+- `uv add jupyter notebook`
 
 ## Quick Reference
 
