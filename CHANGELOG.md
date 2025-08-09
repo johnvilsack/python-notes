@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.3.2] - 2025-08-09
+- PATCH: Theme change
+
 ## [3.3.1] - 2025-08-09
 - PATCH: Front page
 
