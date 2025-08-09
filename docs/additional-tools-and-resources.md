@@ -49,7 +49,13 @@ uv add openpyxl
 - **[Python Cheat Sheet](https://www.pythoncheatsheet.org/)** - Quick syntax lookup
 - **[DevDocs](https://devdocs.io/python/)** - Searchable documentation
 
-\\
+
+
+
+
+
+
+
 
 ---
 \
