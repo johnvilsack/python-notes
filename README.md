@@ -25,7 +25,8 @@ Use this [checklist here](docs/getting-started.md) to track your progress.
 - **[Learning Checklist](docs/learning-checklist.md)** - Track your progress
 
 ## Extras
-- **[Install Scripts](installers.md)** - Skip setup, start coding
-- **[View This Page in HTML](http://johnvilsack.com/python-pages)**
 
-**[← Back to Home](../README.md)**
+- **[1-Click Install Scripts](docs/installers.md)** - Skip setup, start coding
+- **[View This Page in HTML](http://johnvilsack.com/python-notes)**
+- **[View This Page on Github](https://github.com/johnvilsack/python-notes)**
+

@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.6] - 2025-08-09
+- FIX: link cleanup
+
 ## [3.1.5] - 2025-08-09
 - FIX: modifications to front page, created custom-gpt.md
 

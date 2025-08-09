@@ -17,7 +17,7 @@ I want the output to be a single Excel file with all data combined.
 
 ## How to Use
 
-[This Prompt is prepopulated in a custom GPT you can access here](https://chatgpt.com/g/g-6896d430dc7c81919d8428c0626d8ce7-python-tools-boostrap-prompt)
+[Use this custom GPT on ChatGPT with the prompt built-in](https://chatgpt.com/g/g-6896d430dc7c81919d8428c0626d8ce7-python-tools-boostrap-prompt)
 
 **-OR-**
 
