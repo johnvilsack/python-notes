@@ -11,6 +11,7 @@ You tell AI what you want. AI writes Python code. You run it. Problems get solve
 <br>
 
 #### Useful Links
+- **[View in Markdown](https://github.com/johnvilsack/python-notes/blob/main/README.md)**
 - **[View in HTML](http://johnvilsack.com/python-notes)**
 - **[Additional Links](docs/quicklinks.md)**
 

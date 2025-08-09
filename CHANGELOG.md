@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.4.0] - 2025-08-09
+- MINOR Production ready
+
 ## [3.3.4] - 2025-08-09
 - PATCH: Moved links to quick links page
 
