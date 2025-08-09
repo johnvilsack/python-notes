@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.37] - 2025-08-09
+- FIX: bottom links
+
 ## [3.1.36] - 2025-08-09
 - FIX: bottom links
 

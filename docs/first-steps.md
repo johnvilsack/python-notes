@@ -41,5 +41,8 @@ You should see: `Hello from hello-python!`
 You can run the install without admin privileges, but there may be issues with the `uv tool` command later.
 </details>
 
+<br>
+
 ---
+
 ## **Next: [Install VSCode Editor →](editors.md)**
