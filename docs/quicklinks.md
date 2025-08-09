@@ -1,14 +1,14 @@
 # Quick Links
 
 #### Continued Learning
-- **[Learning Checklist](docs/learning-checklist.md)**
+- **[Learning Checklist](learning-checklist.md)**
   
 #### Installers
-- **[1-Click Install Scripts](docs/installers.md)**
+- **[1-Click Install Scripts](installers.md)**
 
 #### Prompts
-- **[Custom Prompt Page](docs/starting-prompt.md)**
-- **[Custom GPT on ChatGPT](docs/custom-gpt.md)**
+- **[Custom Prompt Page](starting-prompt.md)**
+- **[Custom GPT on ChatGPT](custom-gpt.md)**
 
 <br>
 

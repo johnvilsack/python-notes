@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.3.4] - 2025-08-09
+- PATCH: Moved links to quick links page
+
 ## [3.3.3] - 2025-08-09
 - PATCH: Moved links to quick links page
 
