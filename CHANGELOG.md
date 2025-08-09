@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.7] - 2025-08-09
+- FIX: modified getting-started
+
 ## [3.1.6] - 2025-08-09
 - FIX: link cleanup
 

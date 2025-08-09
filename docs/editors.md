@@ -62,8 +62,4 @@ Time: 10 minutes
 - `Ctrl+C` - Stops a running program
 - `cls` - Clears the terminal screen
 
-## Success!
-
-If you can see your code and run it from the terminal, you're all set.
-
 **Next: [Learn Python Basics](the-basics.md)** →

@@ -3,15 +3,9 @@
 You tell AI what you want. AI writes Python code. You run it. Problems get solved.
 
 
-## Getting Started
+## [Getting Started Guide](docs/getting-started.md)
 
 Use this [checklist here](docs/getting-started.md) to track your progress.
-
-1. **[First Steps](docs/first-steps.md)**
-2. **[Setting Up Your Editor](docs/editors.md)**
-3. **[Python Basics](docs/the-basics.md)**
-4. **[Working with AI](docs/how-to-use-with-ai.md)**
-5. **[Extra Tools](docs/additional-tools-and-resources.md)**
 
 ## Starting Prompt
 

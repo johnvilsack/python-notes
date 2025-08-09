@@ -1,30 +1,18 @@
 # Getting Started Checklist
 
-## [Install Python](installation.md)
+These are the tasks you will tackle today.
 
-- [ ] [Read installation guide](installation.md)
+## [Install Python](first-steps.md{target=_blank})
+
 - [ ] Install uv (Python manager)
 - [ ] Start your first project
 
-## [Setup Editor](editors.md)
+## [Setup Code Editor](editors.md)
 
-- [ ] [Read editors guide](editors.md)
 - [ ] Download, Install, and Run VS Code
-- [ ] Add Python extension
 - [ ] Configure Python
 - [ ] Open your project
 
-## Test It Out
+## **[Learn Python Basics](the-basics.md)**
 
-- [ ] In VSCode, create `main.py`
-- [ ] `print("Hello")`
-- [ ] Save the file
-- [ ] Open terminal in VSCode (View → Terminal)
-- [ ] `uv run main.py`
-- [ ] See "Hello" appear
-
-## Success!
-
-If you see "Hello" in your terminal, you're ready.
-
-**Next: [Learn Python Basics](the-basics.md)** →
+**[← Back to Home](../README.md)**
