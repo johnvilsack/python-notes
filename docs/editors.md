@@ -1,6 +1,6 @@
 # Setting Up VSCode
 
-## Step 1: Install VSCode
+## Install VSCode
 
 1. **Download VSCode**
    - Go to [code.visualstudio.com](https://code.visualstudio.com/)
@@ -10,7 +10,7 @@
 
 > **Why VSCode?** Free. Popular. AI understands it well. Has everything built-in.
 
-## Step 2: Add Python Support
+## Add Python Support
 
 1. **Open VSCode**
 
@@ -20,7 +20,7 @@
    - Click "Install" on the first result (by Microsoft)
    - Wait 30 seconds
 
-## Step 3: Open Your Project
+## Open Your Project
 
 1. **Open your HelloPython folder**
    - File → Open Folder
@@ -30,7 +30,7 @@
 2. **Trust the folder**
    - Click "Yes, I trust the authors" when asked
 
-## Step 4: Configure Python
+## Configure Python
 
 1. **Tell VSCode which Python to use**
    - Press `Ctrl+Shift+P`
@@ -39,7 +39,7 @@
 
 > **Why this step?** VSCode needs to know which Python to use for your project.
 
-## Step 5: Open the Terminal
+## Open the Terminal
 
 1. **View → Terminal**
    - This opens a command area at the bottom

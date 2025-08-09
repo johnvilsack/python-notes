@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.3.0] - 2025-08-09
+- MINOR: fixed editors headings
+
 ## [3.2.0] - 2025-08-09
 - MINOR: bottom links
 
