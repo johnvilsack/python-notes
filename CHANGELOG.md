@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.1] - 2025-08-09
+- PATCH: Modifying theme
+
 ## [3.1.0] - 2025-08-09
 - MINOR: Github Pages integration
 

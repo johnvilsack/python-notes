@@ -1,6 +1,6 @@
-title: Python Notes - AI-Assisted Coding Tutorial
-description: Learn to use Python with AI assistance. Get productive in 1 hour.
-theme: minima
+title: Python ❤️ AI
+description: You tell AI what you want. AI writes Python code. You run it. Problems get solved.
+theme: primer
 markdown: kramdown
 highlighter: rouge
 
@@ -14,5 +14,3 @@ relative_links:
 include:
   - README.md
   - docs/
-  - scripts/
-  - downloads/

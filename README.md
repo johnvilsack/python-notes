@@ -1,6 +1,7 @@
 # Python ❤️ AI
 
 You tell AI what you want. AI writes Python code. You run it. Problems get solved.
+[HTML Version](http://johnvilsack.com/python-pages)
 
 ## Guided Path
 
