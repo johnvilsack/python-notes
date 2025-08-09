@@ -50,8 +50,7 @@ uv add openpyxl
 - **[DevDocs](https://devdocs.io/python/)** - Searchable documentation
 <br><br>
 ---
-
-\
+<br><br>
 **[← Back to Checklist](../getting-started.md)**
-\
+<br>>
 **[← Back to Home](../README.md)**
