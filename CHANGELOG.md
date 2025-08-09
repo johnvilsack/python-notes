@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.4.2] - 2025-08-09
+- FIX: Line breaks on main page
+
 ## [3.4.1] - 2025-08-09
 - FIX: Line breaks on main page
 

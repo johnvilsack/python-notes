@@ -4,13 +4,15 @@ You tell AI what you want. AI writes Python code. You run it. Problems get solve
 
 <br>
 
-## [Start Guided Learning](docs/getting-started.md)
+## ➡ [Start Guided Learning](docs/getting-started.md)
 
 <br>
 
 <br>
 
----
+<br>
+
+<br>
 
 <br>
 
