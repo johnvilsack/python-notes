@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.8] - 2025-08-09
+- FIX: bottom links
+
 ## [3.1.7] - 2025-08-09
 - FIX: modified getting-started
 

@@ -66,4 +66,6 @@
 - [ ] Build a website testing tool
 - [ ] Create a tool your team uses
 
-**Next: [Working with AI](how-to-use-with-ai.md)** →
+---
+**[← Back to Getting Started Checklist](../getting-started.md)**
+**[← Back to Home](../README.md)**

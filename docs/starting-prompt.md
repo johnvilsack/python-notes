@@ -68,3 +68,9 @@ I need help with Python scripting. Here's my setup:
 
 - Includes info about your setup and workflow
 - Outlines what you expect to receive back
+
+---
+**Next: [Additional Tools and Resources →](additional-tools-and-resources.md)**
+---
+**[← Back to Checklist](../getting-started.md)**
+**[← Back to Home](../README.md)**

@@ -3,9 +3,9 @@
 You tell AI what you want. AI writes Python code. You run it. Problems get solved.
 
 
-## [Getting Started Guide](docs/getting-started.md)
+## [Start Guided Learning Path](docs/getting-started.md)
 
-Use this [checklist here](docs/getting-started.md) to track your progress.
+**Use this **[checklist here](docs/getting-started.md) to track your progress.
 
 ## Starting Prompt
 

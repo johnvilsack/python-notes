@@ -62,4 +62,8 @@ Time: 10 minutes
 - `Ctrl+C` - Stops a running program
 - `cls` - Clears the terminal screen
 
-**Next: [Learn Python Basics](the-basics.md)** →
+---
+**Next: [Learn Python Basics →](the-basics.md)**
+---
+**[← Back to Checklist](../getting-started.md)**
+**[← Back to Home](../README.md)**

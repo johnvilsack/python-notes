@@ -129,4 +129,8 @@ How do I fix this?
 
 **You:** "Perfect! It found 5 files and combined them"
 
-**Next: [Additional Resources](additional-tools-and-resources.md)** →
+---
+**Next: [Working with Prompts →](starting-prompt.md)**
+---
+**[← Back to Checklist](../getting-started.md)**
+**[← Back to Home](../README.md)**

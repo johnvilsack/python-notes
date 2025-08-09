@@ -101,4 +101,8 @@ uv run main.py
 
 > Using uv manages the packages and code for you.
 
-**Next: [How to Use with AI](how-to-use-with-ai.md)** →
+---
+**Next: [How to Use with AI →](how-to-use-with-ai.md)**
+---
+**[← Back to Checklist](../getting-started.md)**
+**[← Back to Home](../README.md)**

@@ -149,4 +149,6 @@ uv self update               # Update uv itself
 - [Official uv Docs](https://docs.astral.sh/uv/)
 - [uv GitHub](https://github.com/astral-sh/uv)
 
+---
 **[← Back to Additional Tools](additional-tools-and-resources.md)**
+**[← Back to Home](../README.md)**
