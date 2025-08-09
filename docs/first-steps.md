@@ -36,10 +36,8 @@ You should see: `Hello from hello-python!`
 
 > Why uv? Each project gets its own Python and packages. No conflicts. [Learn more](about-uv.md).
 
-<details>
-<summary>Note: Admin Privileges</summary>
-You can run the install without admin privileges, but there may be issues with the `uv tool` command later.
-</details>
+> [!NOTE]
+> You can run the install without admin privileges, but there may be issues with the `uv tool` command later.
 
 <br>
 
