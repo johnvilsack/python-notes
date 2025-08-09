@@ -1,7 +1,5 @@
 # Setting Up VSCode
 
-Time: 10 minutes
-
 ## Step 1: Install VSCode
 
 1. **Download VSCode**
@@ -62,5 +60,10 @@ Time: 10 minutes
 - `Ctrl+C` - Stops a running program
 - `cls` - Clears the terminal screen
 
+<br>
+
 ---
-**Next: [Learn Python Basics →](the-basics.md)**
+
+<br>
+
+## **Next: [Learn Python Basics →](the-basics.md)**
