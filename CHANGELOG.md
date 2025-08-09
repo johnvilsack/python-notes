@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.3.1] - 2025-08-09
+- PATCH: Front page
+
 ## [3.3.0] - 2025-08-09
 - MINOR: fixed editors headings
 
