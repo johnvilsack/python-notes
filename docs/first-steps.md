@@ -34,9 +34,12 @@ uv run main.py
 
 You should see: `Hello from hello-python!`
 
+> [!NOTE]
 > Why uv? Each project gets its own Python and packages. No conflicts. [Learn more](about-uv.md).
 
-> [!NOTE]
+<br>
+
+> [!TIP]
 > You can run the install without admin privileges, but there may be issues with the `uv tool` command later.
 
 <br>

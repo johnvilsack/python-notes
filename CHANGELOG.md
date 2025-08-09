@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.4.4] - 2025-08-09
+- FIX: Added note 
+
 ## [3.4.3] - 2025-08-09
 - FIX: Added note 
 
