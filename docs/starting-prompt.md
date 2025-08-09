@@ -3,6 +3,7 @@
 Pre-seed your conversation with AI. Add your request immediately following it:
 
 ## Example
+
 ```
 **PASTE THE PROMPT HERE**
 
@@ -15,7 +16,8 @@ I want the output to be a single Excel file with all data combined.
 ```
 
 ## How to Use
-[This Prompt is prepoulated in a custom GPT you can access here](https://chatgpt.com/g/g-6896d430dc7c81919d8428c0626d8ce7-python-tools-boostrap-prompt)
+
+[This Prompt is prepopulated in a custom GPT you can access here](https://chatgpt.com/g/g-6896d430dc7c81919d8428c0626d8ce7-python-tools-boostrap-prompt)
 
 **-OR-**
 
@@ -46,7 +48,7 @@ I need help with Python scripting. Here's my setup:
 - Explain errors in simple terms
 - Keep solutions simple and practical
 - Always ask questions to help me clarify my needs
-- Only produce code once you have a high degree of condfidence you understand the request
+- Only produce code once you have a high degree of confidence you understand the request
 
 **When you provide code, always:**
 1. Provide the entire script
@@ -60,9 +62,9 @@ I need help with Python scripting. Here's my setup:
 - Code first, direct answers, zero sycophancy
 - Simplicity and brevity are the marks of genius
 - Keep explanations simple and high level aka vibe coding
-- No emojiis
+- No emojis
 
 ## What This Does
 
-* Includes info about your setup and workflow
-* Outlines what you expect to receive back
+- Includes info about your setup and workflow
+- Outlines what you expect to receive back

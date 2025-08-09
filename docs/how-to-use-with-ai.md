@@ -14,6 +14,7 @@
 ## How to Ask for Code
 
 ### Good Request Structure
+
 1. `I need a Python script that can...`
 2. Explain what you expect it will do -or- what you are trying to solve.
 3. Describe what you have
@@ -22,10 +23,11 @@
 6. `Please provide a solution using well-documented Python code`
 
 ### Understanding How AI Tackles Problems
-* Programs are _mostly_ linear. A happens, then B happens, then C.
-* AI will tackle the problem in the same way
-* The order in which you ask it to do things matters
-* As you get more experienced, write checklists and the order in which you think things need to happen
+
+- Programs are _mostly_ linear. A happens, then B happens, then C.
+- AI will tackle the problem in the same way
+- The order in which you ask it to do things matters
+- As you get more experienced, write checklists and the order in which you think things need to happen
 
 ### Real Examples
 
@@ -92,7 +94,6 @@ How do I fix this?
 **"No module named X"**
 - There's a new package importing
 - Install it: `uv add <package-name-here>`
-- 
 ## Successfully Iterating
 
 ### Be Specific About Problems
@@ -105,7 +106,7 @@ How do I fix this?
 
 **Bad:** "Fix this error"
 
-**Good:** Copy and paste screen output, especially errors; Provide samples of the output that is incorrect
+**Good:** Copy and paste screen output, especially errors; provide samples of the output that is incorrect
 
 ### Better Debugging
 

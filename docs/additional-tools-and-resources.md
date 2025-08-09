@@ -1,6 +1,7 @@
 # Additional Tools and Resources
 
 ## Additional Content in this Wiki
+
 - **[Advanced uv](advanced-uv.md)** - Great reference for learning more about uv
 - **[Install Python](install-python.md)** - Use Python globally on your computer without a manager
 
@@ -16,7 +17,7 @@ uv add pydantic
 # Scraping simple webpages
 uv add beautifulsoup4 
 
-# Scraping websites that have Javascript
+# Scraping websites that have JavaScript
 uv add playwright
 python -m playwright install
 
@@ -26,9 +27,10 @@ uv add requests
 # Read/Write Excel files
 uv add openpyxl
 ```
+
 ## Keeping Software Up-to-Date
+
 - Update uv: `uv self update`
-- 
 
 ## More Tools
 
@@ -46,6 +48,7 @@ uv add openpyxl
 - Install: `uv add jupyter notebook`
 
 ## Quick Reference
+
 - **[Python Cheat Sheet](https://www.pythoncheatsheet.org/)** - Quick syntax lookup
 - **[DevDocs](https://devdocs.io/python/)** - Searchable documentation
 

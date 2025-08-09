@@ -9,6 +9,7 @@ This guide contains specific information for Credential Engine team members work
 **Problem:** Educational institutions don't present credentials in structured formats.
 
 **Solution Pattern:**
+
 ```
 I need a Python script that extracts credential information from [WEBSITE].
 
@@ -28,6 +29,7 @@ Use beautifulsoup4 for parsing HTML.
 ### Processing Registry Data
 
 **Working with Credential Registry API:**
+
 ```
 I need to query the Credential Registry API for all credentials from [ORGANIZATION].
 
@@ -40,6 +42,7 @@ Format the output as JSON matching our schema.
 ### Data Cleaning Patterns
 
 **Standardizing Institution Names:**
+
 ```
 I have a CSV with messy institution names that need standardizing.
 Examples:
@@ -81,6 +84,7 @@ To work with it:
 ## Common Data Sources
 
 ### Types You'll Encounter
+
 - College catalogs (HTML/PDF)
 - State education databases (CSV/Excel)
 - Accreditation bodies (APIs/JSON)
@@ -89,6 +93,7 @@ To work with it:
 ### Extraction Strategies
 
 **For PDFs:**
+
 ```
 I need to extract credential data from a PDF catalog.
 The PDF has tables with: Course Code, Title, Credits, Description
@@ -96,6 +101,7 @@ Please use pypdf or pdfplumber to extract this data.
 ```
 
 **For Complex HTML:**
+
 ```
 This educational website loads data dynamically with JavaScript.
 I need to use Playwright to:
@@ -147,6 +153,7 @@ Please include proper @context and @type fields.
 ## Example Projects
 
 ### Project 1: State University System Scraper
+
 ```
 Create a script that:
 1. Reads a list of university URLs
@@ -156,6 +163,7 @@ Create a script that:
 ```
 
 ### Project 2: Competency Extractor
+
 ```
 Parse course descriptions to extract:
 - Learning outcomes

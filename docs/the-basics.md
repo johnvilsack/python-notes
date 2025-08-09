@@ -27,7 +27,7 @@ row_count = 1000               # Stores number
 files = ["doc1.pdf", "doc2.pdf", "doc3.pdf"]
 ```
 
-### Functions - Where things happen
+### Functions - Where Things Happen
 ```python
 # Define function called process_file that expects data called filename
 def process_file(filename):     # Define action
@@ -39,13 +39,13 @@ def process_file(filename):     # Define action
 # This is how you call the function called process_file and supply it with the expected filename
 process_file("data.csv")        # Use action
 ```
-### Loops - When you want to do things to a list of values
+### Loops - When You Want to Do Things to a List of Values
 ```python
 for file in files:              # Do something to each
     print(file)
 ```
 
-### If/Then - If this, then do that decisions
+### If/Then - If This, Then Do That Decisions
 ```python
 if age > 18:
     print("Adult")

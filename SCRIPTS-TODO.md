@@ -1,9 +1,4 @@
-[ ] Refine "Understanding How AI Tackles Problems" in how-to-use-with-ai
-
-
-
-
-Can you provide me a powershell script for windows 11? I'm not even sure all of this is possible, but I would like to:
+I would like to:
 1. Install uv (e.g.  powershell -ExecutionPolicy Bypass -c "irm https://astral.sh/uv/install.ps1 | iex")
 2. Add uv to path
 3. Create python-notes project folder in windows equivalent of $HOME\Documents\python-notes
@@ -28,3 +23,7 @@ Can you provide me a powershell script for windows 11? I'm not even sure all of 
     2.  Ensure terminal is opened and pointed into the project's directory
 14. Point this vscode workspace to this python interpreter
 15. Open VS Code to this workspace
+
+I would also like a script that python-global-installer.ps1:
+1. Installs latest python globally
+2. Installs the packages above globally
