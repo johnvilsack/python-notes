@@ -1,0 +1,1 @@
+<Same style of overview about how to install python directly across the entire computer. provide wingeet or direct download methods. Explain why you would want to do this. Section on how this is different from uv. provide section on how to install packages globally versus in a managed envrionment. Provide way to test working. provide way on how to keep it up to date>

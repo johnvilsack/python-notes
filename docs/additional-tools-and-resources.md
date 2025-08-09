@@ -1,5 +1,9 @@
 # Additional Tools and Resources
 
+## Additional Content in this Wiki
+- **[Advanced uv](advanced-uv.md)** - Great reference for learning more about uv
+- **[Install Python](install-python.md)** - Use Python globally on your computer without a manager
+
 ## Common Packages You'll Need
 
 ```bash
@@ -22,6 +26,10 @@ uv add requests
 # Read/Write Excel files
 uv add openpyxl
 ```
+## Keeping Software Up-to-Date
+- Update uv: `uv self update`
+- 
+
 ## More Tools
 
 **GitHub Desktop** - Save versions of your code
