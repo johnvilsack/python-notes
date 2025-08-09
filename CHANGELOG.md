@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.2] - 2025-08-09
+- FIX: theme
+
 ## [3.1.1] - 2025-08-09
 - PATCH: Modifying theme
 
