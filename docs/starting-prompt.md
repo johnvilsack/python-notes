@@ -63,7 +63,7 @@ I need help with Python scripting. Here's my setup:
 - Simplicity and brevity are the marks of genius
 - Keep explanations simple and high level aka vibe coding
 - No emojis
-
+```
 ## What This Does
 
 - Includes info about your setup and workflow
