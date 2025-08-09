@@ -8,7 +8,7 @@
    - Click "Yes" when asked
 
 2. **Install uv Python Manager**
-   - Copy and paste this command:
+   - Copy and paste this command:<br>
 
    ```powershell
    powershell -ExecutionPolicy Bypass -c "irm https://astral.sh/uv/install.ps1 | iex"
@@ -40,5 +40,7 @@ You should see: `Hello from hello-python!`
 
 You can run the install without admin privileges, but there may be issues with the `uv tool` command later.
 
+<br><br>
 ---
-**Next: [Install VSCode Editor →](editors.md)**
+<br><br>
+# **Next: [Install VSCode Editor →](editors.md)**

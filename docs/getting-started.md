@@ -40,5 +40,7 @@ These are the tasks you will tackle today.
 - Acheivable Goals
 - Simple Milestone Projects
 
+<br><br>
 ---
+<br><br>
 **[← Back to Home](../README.md)**
