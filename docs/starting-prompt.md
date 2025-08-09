@@ -71,6 +71,3 @@ I need help with Python scripting. Here's my setup:
 
 ---
 **Next: [Additional Tools and Resources →](additional-tools-and-resources.md)**
----
-**[← Back to Checklist](../getting-started.md)**
-**[← Back to Home](../README.md)**

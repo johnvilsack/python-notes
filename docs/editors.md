@@ -64,6 +64,3 @@ Time: 10 minutes
 
 ---
 **Next: [Learn Python Basics →](the-basics.md)**
----
-**[← Back to Checklist](../getting-started.md)**
-**[← Back to Home](../README.md)**

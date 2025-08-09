@@ -131,6 +131,3 @@ How do I fix this?
 
 ---
 **Next: [Working with Prompts →](starting-prompt.md)**
----
-**[← Back to Checklist](../getting-started.md)**
-**[← Back to Home](../README.md)**

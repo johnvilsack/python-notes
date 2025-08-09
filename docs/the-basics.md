@@ -103,6 +103,3 @@ uv run main.py
 
 ---
 **Next: [How to Use with AI →](how-to-use-with-ai.md)**
----
-**[← Back to Checklist](../getting-started.md)**
-**[← Back to Home](../README.md)**

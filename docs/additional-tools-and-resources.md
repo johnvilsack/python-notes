@@ -51,4 +51,4 @@ uv add openpyxl
 
 ---
 **[← Back to Checklist](../getting-started.md)**
-**[← Back to Home](../README.md)**
+<p align="right">**[← Back to Home](../README.md)**</p>
