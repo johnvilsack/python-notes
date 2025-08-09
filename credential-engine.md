@@ -6,9 +6,7 @@ This guide contains specific information for Credential Engine team members work
 
 ### Extracting Credentials from Websites
 
-**Problem:** Educational institutions don't present credentials in structured formats.
-
-**Solution Pattern:**
+**Sample Prompt:**
 
 ```
 I need a Python script that extracts credential information from [WEBSITE].
@@ -53,23 +51,14 @@ Examples:
 Please create a script that uses a mapping dictionary to clean these.
 ```
 
-## Useful Packages for CE Work
+## Useful Packages specific for CE Work
 
 ```bash
-# Web scraping educational sites
-uv add requests beautifulsoup4 playwright
-
-# Data processing
-uv add pandas openpyxl
-
-# API work
-uv add requests pydantic
-
-# JSON schema validation
-uv add jsonschema
-
 # Fuzzy matching for institution names
 uv add fuzzywuzzy python-Levenshtein
+
+# PDF extraction and manipulation
+uv add pypdf pdfplumber
 ```
 
 ## CE Publisher Support Tool Integration
@@ -171,13 +160,5 @@ Parse course descriptions to extract:
 - Skills
 Map these to existing frameworks when possible
 ```
-
-## Remember
-
-- Educational data is messy - expect inconsistencies
-- Always validate against CE schemas
-- Institution names need careful standardization
-- Save raw data before processing
-- Document your extraction logic
 
 **[← Back to Main Guide](README.md)**

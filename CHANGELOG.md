@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.0.1] - 2025-08-09
+- FIX: cleanup
+
 ## [3.0.0] - 2025-08-09
 - MAJOR: aio script ready
 

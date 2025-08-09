@@ -18,12 +18,12 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | iex" *>$null
 
 # Update PATH
 $env:Path = [Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [Environment]::GetEnvironmentVariable('Path','User')
-$env:Path += ";$env:LOCALAPPDATA\uv\bin"
+$env:Path += ";$HOME\.local\bin"
 
 # Install Python
 Write-Host "[2/3] Installing Python $PythonVersion..." -ForegroundColor Yellow
 uv python install $PythonVersion *>$null
-uv python pin $PythonVersion --system *>$null
+uv python pin --global $PythonVersion *>$null
 
 # Install packages globally
 Write-Host "[3/3] Installing packages..." -ForegroundColor Yellow
