@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.12] - 2025-08-09
+- FIX: spacing test
+
 ## [3.1.11] - 2025-08-09
 - FIX: bottom link alignment
 
