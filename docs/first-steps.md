@@ -9,9 +9,11 @@
 
 2. **Install uv Python Manager**
    - Copy and paste this command:
+
    ```powershell
    powershell -ExecutionPolicy Bypass -c "irm https://astral.sh/uv/install.ps1 | iex"
    ```
+
    - Wait for "uv installed successfully"
    - Close and reopen Terminal to enable uv
 
@@ -29,6 +31,7 @@ uv init
 # Test it - uv installs Python automatically!
 uv run main.py
 ```
+
 You should see: `Hello from hello-python!`
 
 > Why uv? Each project gets its own Python and packages. No conflicts. [Learn more](about-uv.md).
