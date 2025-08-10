@@ -29,6 +29,13 @@ These are the tasks you will tackle today.
 - Observe changes in AI Behavior
 - Use Custom GPT
 
+## **[Putting it All Together](putting-it-all-together.md)**
+
+- Practice what you've learned
+- Start a new project
+- Add a script
+- Run the program
+
 ## **[Additional Resources](additional-tools-and-resources.md)**
 
 - Useful Packages
