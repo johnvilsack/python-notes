@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.8.0] - 2025-08-10
+- MINOR: added first program exercise
+
 ## [3.7.0] - 2025-08-10
 - MINOR: testing changes
 
