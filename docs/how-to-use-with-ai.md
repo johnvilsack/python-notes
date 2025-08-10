@@ -16,11 +16,11 @@
 ### Good Request Structure
 
 > I need a Python script that [DOES THIS].
-
+>
 > Input: [WHAT YOU HAVE]
-
+>
 > Output: [WHAT YOU WANT]
-
+>
 > Please use well-documented Python code.
 
 ### Think Step-by-Step
