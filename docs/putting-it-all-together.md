@@ -6,41 +6,13 @@ Let's make sure you got this down.
 2. Open a new terminal window
 3. Go to your user profile github folder
 4. Create a new directory called my-example
-5. Go in to my-example and ```uv init``` to bootstrap the project
-6. 
-
-## **[Setup Code Editor](editors.md)**
-
-- Download, Install, and Run VS Code
-- Configure Python
-- Run your project
-
-## **[Learn Python Basics](the-basics.md)**
-
-- Learn to read basic code
-
-## **[Working with AI](how-to-use-with-ai.md)**
-
-- Prompt AI for Python Script
-- Paste and Run Code
-- Fine Tuning
-
-## **[Using Custom Prompts](starting-prompt.md)**
-
-- Start a Conversation with a Prompt
-- Observe changes in AI Behavior
-- Use Custom GPT
-
-## **[Additional Resources](additional-tools-and-resources.md)**
-
-- Useful Packages
-- Killer Apps
-- Cheat Sheets and Reference Guides
-  
-## **[Self-Guided Checklist](learning-checklist.md)**
-
-- Acheivable Goals
-- Simple Milestone Projects
+5. Go in to my-example and ```uv init``` then ```uv sync``` to set up the project and install Python locally
+6. Run the script via ```uv run main.py```
+7. Type ```code .``` to open the project in VSCode
+8. Open AI Chat
+9. Ask it for a script
+10. Copy and paste new script into your project
+11. Run the script from Terminal
 
 <br>
 
@@ -48,4 +20,4 @@ Let's make sure you got this down.
 
 <br>
 
-**[← Back to Home](../README.md)**
+## **Next: [Additional Tools and Resources →](additional-tools-and-resources.md)**

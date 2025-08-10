@@ -73,4 +73,4 @@ Copy the prompt below and paste it in before your first request in a new convers
 
 <br>
 
-## **Next: [Additional Tools and Resources →](additional-tools-and-resources.md)**
+## **Next: [Putting it All Together →](putting-it-all-together.md)**

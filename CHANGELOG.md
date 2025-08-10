@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.9.0] - 2025-08-10
+- MINOR: added putting-it-all-together
+
 ## [3.8.0] - 2025-08-10
 - MINOR: added first program exercise
 
