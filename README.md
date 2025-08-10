@@ -4,6 +4,8 @@ You tell AI what you want. AI writes Python code. You run it. Problems get solve
 
 <br>
 
+<br>
+
 ## ➡ [Start Guided Learning](docs/getting-started.md)
 
 <br>
