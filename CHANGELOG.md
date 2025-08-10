@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.10.0] - 2025-08-10
+- MINOR: Added terminal commands reference
+
 ## [3.9.0] - 2025-08-10
 - MINOR: added putting-it-all-together
 

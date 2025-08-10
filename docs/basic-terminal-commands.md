@@ -1,6 +1,8 @@
 ## Getting Around in Terminal
 
-Familiarizing yourself with Terminal will make working with files and folders much easier. Here are a few of the most common to get you started:
+Familiarizing yourself with Terminal will make working with files and folders much easier. 
+
+Here are a few of the most common to get you started:
 
 - ```pwd```: Print working directory to see where you are
 - ```cd <directoryname>```: Change directory to move around the filesystem
