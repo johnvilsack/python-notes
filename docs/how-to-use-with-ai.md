@@ -47,7 +47,7 @@ Please let me know step-by-step what I should do with the script once you provid
    2. Save it
    3. Run ```uv run main.py``` in a terminal window
 
-You just wrote your first program using AI! [View our example code](../downloads/scripts/quotes.py)
+You just wrote your first program using AI! [View our example code](../scripts/quotes.py)
 
 ### Real Examples
 
