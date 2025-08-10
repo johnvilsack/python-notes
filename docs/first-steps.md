@@ -39,6 +39,7 @@ You should see: `Hello from hello-python!`
 
 > [!TIP]
 > Click here to learn more about **[Basic Terminal Commands](basic-terminal-commands.md)** 
+
 <br>
 
 ---

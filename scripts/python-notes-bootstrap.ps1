@@ -215,7 +215,7 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
 
       $CodeBin = Join-Path $env:LOCALAPPDATA 'Programs\Microsoft VS Code\bin'
       Add-PathSession $CodeBin
-      Set-UserPathPersistent $CodeBin   # Make 'code' persist for future shells. CLI path = ...\bin. :contentReference[oaicite:1]{index=1}
+      Set-UserPathPersistent $CodeBin  # %LOCALAPPDATA%\Programs\Microsoft VS Code\bin contains code.cmd. :contentReference[oaicite:6]{index=6}
 
       if (Get-Command code -ErrorAction SilentlyContinue) {
         if ($PSCmdlet.ShouldProcess("VS Code", "Install Python & Jupyter extensions")) {
@@ -229,7 +229,7 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
     } catch { Write-StepResult "[5/6] Tools" $false $_.Exception.Message }
   }
 
-  # [6/6] VS Code config + open (auto-open integrated terminal on first launch)
+  # [6/6] VS Code config + open (auto-open integrated terminal; make 'code' work inside it)
   Invoke-Step -Title "[6/6] VS Code" -Index (++$i) -Total $total -Action {
     try {
       if ($PSCmdlet.ShouldProcess(".vscode", "Ensure directory")) {
@@ -237,18 +237,23 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
       }
       $venvPy = ".\\.venv\\Scripts\\python.exe"
 
-      # Settings: interpreter, terminal cwd, persistent sessions, allow automatic tasks
+      # VS Code CLI bin path to inject in terminal PATH
+      $CodeBin = Join-Path $env:LOCALAPPDATA 'Programs\Microsoft VS Code\bin'
+      $termPathPatch = if (Test-Path -LiteralPath $CodeBin) { "$CodeBin;`$\{env:PATH}" } else { "`$\{env:PATH}" }
+
+      # Settings: interpreter, terminal cwd, persistent sessions, allow automatic tasks, PATH injection for integrated terminal
       if ($PSCmdlet.ShouldProcess(".vscode\\settings.json", "Write")) {
         @{
-          "python.defaultInterpreterPath"        = $venvPy
-          "python.terminal.activateEnvironment"  = $true
-          "terminal.integrated.cwd"              = '${workspaceFolder}'
-          "terminal.integrated.enablePersistentSessions" = $true
-          "task.allowAutomaticTasks"             = "on"   # run automatic tasks without additional prompt in trusted workspaces. :contentReference[oaicite:2]{index=2}
-        } | ConvertTo-Json | Set-Content -Encoding UTF8 .\.vscode\settings.json
+          "python.defaultInterpreterPath"                 = $venvPy
+          "python.terminal.activateEnvironment"           = $true
+          "terminal.integrated.cwd"                       = '${workspaceFolder}'
+          "terminal.integrated.enablePersistentSessions"  = $true
+          "task.allowAutomaticTasks"                      = "on"
+          "terminal.integrated.env.windows"               = @{ "PATH" = $termPathPatch }  # ensure 'code' exists in panel immediately. :contentReference[oaicite:7]{index=7}
+        } | ConvertTo-Json -Depth 5 | Set-Content -Encoding UTF8 .\.vscode\settings.json
       }
 
-      # Task: open a PowerShell terminal and keep it open on folder open
+      # Auto-open terminal on folder open
       if ($PSCmdlet.ShouldProcess(".vscode\\tasks.json", "Write auto-open terminal task")) {
 @"
 {
@@ -271,17 +276,18 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
 }
 "@ | Set-Content -Encoding UTF8 .\.vscode\tasks.json
       }
-      # Docs: runOn:"folderOpen" auto-runs a task when the folder opens (once allowed). :contentReference[oaicite:3]{index=3}
+      # runOn:"folderOpen" triggers on open; allowAutomaticTasks enables it without extra prompts in trusted workspaces. :contentReference[oaicite:8]{index=8}
 
-      # Workspace file (unchanged except for above settings)
+      # Workspace file (same settings replicated)
       $ws = @{
         "folders"  = @(@{"path"="."});
         "settings" = @{
-          "python.defaultInterpreterPath"       = $venvPy
-          "python.terminal.activateEnvironment" = $true
-          "terminal.integrated.cwd"             = '${workspaceFolder}'
-          "terminal.integrated.enablePersistentSessions" = $true
-          "task.allowAutomaticTasks"            = "on"
+          "python.defaultInterpreterPath"                 = $venvPy
+          "python.terminal.activateEnvironment"           = $true
+          "terminal.integrated.cwd"                       = '${workspaceFolder}'
+          "terminal.integrated.enablePersistentSessions"  = $true
+          "task.allowAutomaticTasks"                      = "on"
+          "terminal.integrated.env.windows"               = @{ "PATH" = $termPathPatch }
         }
       } | ConvertTo-Json -Depth 5
 
@@ -294,14 +300,15 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
         if ($PSCmdlet.ShouldProcess("VS Code", "Open workspace & files")) {
           $codeCmd = (Get-Command code).Source
           & $codeCmd $wsPath .\main.py .\examples.py .\notebook.ipynb | Out-Null
-          # On first open you'll get one prompt per workspace to allow automatic tasks.
-          # With task.allowAutomaticTasks="on" in settings and a trusted folder, it runs without extra prompts. :contentReference[oaicite:4]{index=4}
         }
       } elseif (-not (Get-Command code -ErrorAction SilentlyContinue)) {
         Write-Warning "VS Code installed but 'code' CLI not yet visible in THIS shell; new terminals will see it, or run: `$env:Path += ';$CodeBin'"
       }
 
-      Write-StepResult "[6/6] VS Code" $true "workspace ready (terminal will auto-open)"
+      # Final clarity: old external consoles won't get new PATH until restarted (Windows process model).
+      Write-Host "Note: Your original terminal may not see the updated PATH. If 'code' isn't recognized there, close and reopen that terminal." -ForegroundColor DarkYellow
+
+      Write-StepResult "[6/6] VS Code" $true "workspace ready (terminal auto-opens; PATH patched for 'code')"
     } catch { Write-StepResult "[6/6] VS Code" $false $_.Exception.Message }
   }
 
@@ -315,6 +322,7 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
   }
 }
 
+# Auto-run when executed as a file; when piped via | iex, call Start-PythonNotesBootstrap [...]
 if ($MyInvocation.InvocationName -ne '.') {
   Start-PythonNotesBootstrap -ProjectPath $ProjectPath -SkipVSCodeOpen:$SkipVSCodeOpen
 }
