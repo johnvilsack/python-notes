@@ -44,7 +44,7 @@ Familiarizing yourself with Terminal will make working with files and folders mu
 - ```cp``` Copy a file or folder
 - ```rm``` Remove a file or folder
 - ```man <command>``` Help manual for any command
-- 
+
 <br>
 
 > [!TIP]
