@@ -33,15 +33,14 @@ Please use well-documented Python code.
 1. Open your favorite AI chat
 2. Prompt it to write you a program
 
-```markdown
-I want to create my very first program in Python.
+>I want to create my very first program in Python.
+>
+>I would like you to create a script that fetches a random quote from an online API and display it in a colorful, stylized way in the terminal. You should use zenquotes.io if possible.
+>
+>I'm using Windows 11 and Python uses uv. I would prefer to automatically install whatever the script needs when I run uv run main.py
+>
+>Please let me know step-by-step what I should do with the script once you provide it. I already have the default main.py script open in VS Code from when I did uv init.
 
-I would like you to create a script that fetches a random quote from an online API and display it in a colorful, stylized way in the terminal. You should use zenquotes.io if possible.
-
-I'm using Windows 11 and Python uses uv. I would prefer to automatically install whatever the script needs when I run uv run main.py
-
-Please let me know step-by-step what I should do with the script once you provide it. I already have the default main.py script open in VS Code from when I did uv init.
-```
 3. Follow the AI's instructions it should:
    1. Ask you to replace the contents of main.py with the new script
    2. Save it
