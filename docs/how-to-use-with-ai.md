@@ -36,7 +36,7 @@ Please use well-documented Python code.
 ```markdown
 I want to create my very first program in Python.
 
-I would like you to create a script that fetches a random quote from an online API and display it in a colorful, stylized way in the terminal.
+I would like you to create a script that fetches a random quote from an online API and display it in a colorful, stylized way in the terminal. You should use zenquotes.io if possible.
 
 I'm using Windows 11 and Python uses uv. I would prefer to automatically install whatever the script needs when I run uv run main.py
 
@@ -47,7 +47,7 @@ Please let me know step-by-step what I should do with the script once you provid
    2. Save it
    3. Run ```uv run main.py``` in a terminal window
 
-You just wrote your first program using AI!
+You just wrote your first program using AI! [View our example code](../downloads/scripts/quotes.py)
 
 ### Real Examples
 
