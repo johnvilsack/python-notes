@@ -2,11 +2,13 @@
 
 You tell AI what you want. AI writes Python code. You run it. Problems get solved.
 
-<br>
+**Goal: Get total beginners running code in less than 1 hour**
 
 <br>
 
-## ➡ [Start Guided Learning](docs/getting-started.md)
+<br>
+
+## ➡ [Start Here](docs/getting-started.md)
 
 <br>
 
