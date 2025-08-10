@@ -2,6 +2,8 @@
 
 ## Installation
 
+We're going to use the Windows Terminal. While it may seem daunting at first, the Terminal is just a way to work with files and folders through text.
+
 1. **Open PowerShell as Administrator**
    - Right-click Start button
    - Click "Terminal (Admin)" 
@@ -13,10 +15,12 @@
    ```powershell
    powershell -ExecutionPolicy Bypass -c "irm https://astral.sh/uv/install.ps1 | iex"
    ```
-
    - Wait for "uv installed successfully"
    - Close and reopen Terminal to enable uv
    - Type "```uv```" - You should see info about uv, not an error message
+
+> [!TIP]
+> When you type a command and hit enter, you are telling the computer to do stuff. Some commands take longer to do than others and your cursor will disappear during this time. When the command is done, your cursor will return.
 
 ## Initialize Your First Project
 
@@ -44,6 +48,8 @@ Familiarizing yourself with Terminal will make working with files and folders mu
 - ```cp``` Copy a file or folder
 - ```rm``` Remove a file or folder
 - ```man <command>``` Help manual for any command
+- ```clear``` Clear the screen
+- ```Control + C``` Stop whatever is happening from continuing
 
 <br>
 
