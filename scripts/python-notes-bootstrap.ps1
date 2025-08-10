@@ -18,11 +18,8 @@ $Results = [System.Collections.Generic.List[object]]::new()
 function Write-StepResult {
   param([string]$Name,[bool]$Ok,[string]$Note)
   $Results.Add([pscustomobject]@{ Step=$Name; Success=$Ok; Note=$Note })
-  if ($Ok) {
-    Write-Host "$Name => SUCCESS : $Note" -ForegroundColor Green
-  } else {
-    Write-Host "$Name => FAIL    : $Note" -ForegroundColor Red
-  }
+  if ($Ok) { Write-Host "$Name => SUCCESS : $Note" -ForegroundColor Green }
+  else     { Write-Host "$Name => FAIL    : $Note" -ForegroundColor Red }
 }
 
 function Add-PathSession {
@@ -64,7 +61,6 @@ function Install-ToolIfMissing {
     winget install --id $WingetId -e --silent --accept-source-agreements --accept-package-agreements | Out-Null
     Start-Sleep -Seconds 3
     if (-not (Get-Command $ExeName -ErrorAction SilentlyContinue)) {
-      # Light retry
       winget install --id $WingetId -e --silent --accept-source-agreements --accept-package-agreements | Out-Null
       Start-Sleep -Seconds 2
     }
@@ -107,7 +103,6 @@ function Start-PythonNotesBootstrap {
   Invoke-Step -Title "[1/6] uv" -Index (++$i) -Total $total -Action {
     try {
       if ($PSCmdlet.ShouldProcess("uv", "Install/refresh")) {
-        # Use a nested process so we don't inherit modules/profile state
         powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -c "iwr -UseBasicParsing https://astral.sh/uv/install.ps1 | iex" 2>$null
       }
       $UserBin = Join-Path $HOME '.local\bin'
@@ -214,17 +209,16 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
   # [5/6] Tools via winget; ensure code CLI on PATH; install extensions
   Invoke-Step -Title "[5/6] Tools" -Index (++$i) -Total $total -Action {
     try {
-      $gitStatus = Install-ToolIfMissing -ExeName 'git.exe'   -WingetId 'Git.Git'                  -FriendlyName 'Git'
+      $gitStatus = Install-ToolIfMissing -ExeName 'git.exe'   -WingetId 'Git.Git'                    -FriendlyName 'Git'
       $vscStatus = Install-ToolIfMissing -ExeName 'code.cmd'  -WingetId 'Microsoft.VisualStudioCode' -FriendlyName 'Visual Studio Code'
-      $ghdStatus = Install-ToolIfMissing -ExeName 'github'    -WingetId 'GitHub.GitHubDesktop'     -FriendlyName 'GitHub Desktop'
+      $ghdStatus = Install-ToolIfMissing -ExeName 'github'    -WingetId 'GitHub.GitHubDesktop'       -FriendlyName 'GitHub Desktop'
 
       $CodeBin = Join-Path $env:LOCALAPPDATA 'Programs\Microsoft VS Code\bin'
       Add-PathSession $CodeBin
-      Set-UserPathPersistent $CodeBin
+      Set-UserPathPersistent $CodeBin   # Make 'code' persist for future shells. CLI path = ...\bin. :contentReference[oaicite:1]{index=1}
 
       if (Get-Command code -ErrorAction SilentlyContinue) {
         if ($PSCmdlet.ShouldProcess("VS Code", "Install Python & Jupyter extensions")) {
-          # If PATH is finicky, call the full path to code.cmd
           $codeCmd = (Get-Command code -ErrorAction SilentlyContinue).Source
           & $codeCmd --install-extension ms-python.python  --force | Out-Null
           & $codeCmd --install-extension ms-toolsai.jupyter --force | Out-Null
@@ -235,7 +229,7 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
     } catch { Write-StepResult "[5/6] Tools" $false $_.Exception.Message }
   }
 
-  # [6/6] VS Code config + open
+  # [6/6] VS Code config + open (auto-open integrated terminal on first launch)
   Invoke-Step -Title "[6/6] VS Code" -Index (++$i) -Total $total -Action {
     try {
       if ($PSCmdlet.ShouldProcess(".vscode", "Ensure directory")) {
@@ -243,20 +237,51 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
       }
       $venvPy = ".\\.venv\\Scripts\\python.exe"
 
+      # Settings: interpreter, terminal cwd, persistent sessions, allow automatic tasks
       if ($PSCmdlet.ShouldProcess(".vscode\\settings.json", "Write")) {
         @{
-          "python.defaultInterpreterPath"     = $venvPy
-          "python.terminal.activateEnvironment" = $true
-          "terminal.integrated.cwd"           = '${workspaceFolder}'
+          "python.defaultInterpreterPath"        = $venvPy
+          "python.terminal.activateEnvironment"  = $true
+          "terminal.integrated.cwd"              = '${workspaceFolder}'
+          "terminal.integrated.enablePersistentSessions" = $true
+          "task.allowAutomaticTasks"             = "on"   # run automatic tasks without additional prompt in trusted workspaces. :contentReference[oaicite:2]{index=2}
         } | ConvertTo-Json | Set-Content -Encoding UTF8 .\.vscode\settings.json
       }
 
+      # Task: open a PowerShell terminal and keep it open on folder open
+      if ($PSCmdlet.ShouldProcess(".vscode\\tasks.json", "Write auto-open terminal task")) {
+@"
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Open Terminal (on folder open)",
+      "type": "shell",
+      "options": {
+        "shell": {
+          "executable": "powershell.exe",
+          "args": ["-NoLogo","-NoProfile","-NoExit","-Command"]
+        }
+      },
+      "command": "Write-Host 'Terminal ready';",
+      "runOptions": { "runOn": "folderOpen" },
+      "presentation": { "reveal": "always", "panel": "shared", "focus": true }
+    }
+  ]
+}
+"@ | Set-Content -Encoding UTF8 .\.vscode\tasks.json
+      }
+      # Docs: runOn:"folderOpen" auto-runs a task when the folder opens (once allowed). :contentReference[oaicite:3]{index=3}
+
+      # Workspace file (unchanged except for above settings)
       $ws = @{
         "folders"  = @(@{"path"="."});
         "settings" = @{
           "python.defaultInterpreterPath"       = $venvPy
           "python.terminal.activateEnvironment" = $true
           "terminal.integrated.cwd"             = '${workspaceFolder}'
+          "terminal.integrated.enablePersistentSessions" = $true
+          "task.allowAutomaticTasks"            = "on"
         }
       } | ConvertTo-Json -Depth 5
 
@@ -269,12 +294,14 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
         if ($PSCmdlet.ShouldProcess("VS Code", "Open workspace & files")) {
           $codeCmd = (Get-Command code).Source
           & $codeCmd $wsPath .\main.py .\examples.py .\notebook.ipynb | Out-Null
+          # On first open you'll get one prompt per workspace to allow automatic tasks.
+          # With task.allowAutomaticTasks="on" in settings and a trusted folder, it runs without extra prompts. :contentReference[oaicite:4]{index=4}
         }
       } elseif (-not (Get-Command code -ErrorAction SilentlyContinue)) {
         Write-Warning "VS Code installed but 'code' CLI not yet visible in THIS shell; new terminals will see it, or run: `$env:Path += ';$CodeBin'"
       }
 
-      Write-StepResult "[6/6] VS Code" $true "workspace ready"
+      Write-StepResult "[6/6] VS Code" $true "workspace ready (terminal will auto-open)"
     } catch { Write-StepResult "[6/6] VS Code" $false $_.Exception.Message }
   }
 
@@ -288,7 +315,6 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
   }
 }
 
-# Auto-run when executed as a file; when piped via | iex, call Start-PythonNotesBootstrap [...]
 if ($MyInvocation.InvocationName -ne '.') {
   Start-PythonNotesBootstrap -ProjectPath $ProjectPath -SkipVSCodeOpen:$SkipVSCodeOpen
 }
