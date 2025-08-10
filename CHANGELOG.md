@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.5.0] - 2025-08-09
+- MINOR: Added sidebars
+
 ## [3.4.4] - 2025-08-09
 - FIX: Added note 
 

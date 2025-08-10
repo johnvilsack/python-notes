@@ -50,8 +50,8 @@ Should show: `Python 3.12.x`
 pip install pandas
 pip install requests
 ```
-
-> **Warning:** Global packages affect ALL Python scripts
+> [!WARNING]
+> Global packages affect ALL Python scripts
 
 ## Managing Package Versions
 

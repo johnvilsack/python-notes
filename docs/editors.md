@@ -8,6 +8,7 @@
    - Run the installer
    - Keep clicking "Next" (default options are fine)
 
+> [!TIP]
 > **Why VSCode?** Free. Popular. AI understands it well. Has everything built-in.
 
 ## Add Python Support
@@ -37,7 +38,8 @@
    - Type "Python: Select Interpreter"
    - Choose the one that mentions "HelloPython"
 
-> **Why this step?** VSCode needs to know which Python to use for your project.
+> [!TIP]
+> **Why?** VSCode needs to know which Python to use for your project.
 
 ## Open the Terminal
 

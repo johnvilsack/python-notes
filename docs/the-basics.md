@@ -79,6 +79,7 @@ uv add requests         # For web stuff
 uv add beautifulsoup4   # For HTML parsing
 ```
 
+> [!TIP]
 > **Packages** are apps for Python. They cut down on the amount of code you need to get the job done.
 
 ## Reading Errors
@@ -99,6 +100,7 @@ Use:
 uv run main.py
 ```
 
+> [!TIP]
 > Using uv manages the packages and code for you.
 
 <br>

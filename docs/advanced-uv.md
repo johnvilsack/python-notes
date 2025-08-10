@@ -58,6 +58,8 @@ uv python list --all-versions # Show all available
 uv lock                        # Create/update lock file
 uv sync                        # Install from lock file
 ```
+
+> [!TIP]
 > Lock files ensure everyone gets exact same package versions
 
 ### Running Scripts
