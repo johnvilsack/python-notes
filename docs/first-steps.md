@@ -7,6 +7,9 @@
    - Click "Terminal (Admin)" 
    - Click "Yes" when asked
 
+> [!INFO]
+> Windows Terminal is the preferred terminal app. If you don't have it, you can install it from the Microsoft Store. When in the app, you will want to use "PowerShell" as it is the modern, more useful command line.
+
 2. **Install uv Python Manager**
    - Copy and paste this command:<br>
 
@@ -21,9 +24,10 @@
 
 ```powershell
 # Create your project folder
-cd Documents
-mkdir MyPythonWork
-cd MyPythonWork
+(Make sure you are in Powershell. If you are not or unsure, type "powershell")
+cd $env:USERPROFILE     # This moves you to your C:\Users\YOURUSERNAME directory
+mkdir python-notes
+cd python-notes
 
 # Bootstrap project
 uv init
