@@ -15,12 +15,10 @@
 
 ### Good Request Structure
 
-```
-I need a Python script that [DOES THIS].
-Input: [WHAT YOU HAVE]
-Output: [WHAT YOU WANT]
-Please use well-documented Python code.
-```
+> I need a Python script that [DOES THIS].
+> Input: [WHAT YOU HAVE]
+> Output: [WHAT YOU WANT]
+> Please use well-documented Python code.
 
 ### Think Step-by-Step
 
@@ -51,28 +49,26 @@ You just wrote your first program using AI! [View our example code](../scripts/q
 ### Real Examples
 
 **Example 1: File Processing**
-```
-I need a Python script that reads a CSV file and finds all rows where the date is last Monday.
-
-Input: CSV file with columns: Date, Name, Amount, Status
-Output: New CSV with only Monday's rows
-
-Please use well-documented Python code.
-```
+> I need a Python script that reads a CSV file and finds all rows where the date is last Monday.
+>
+> Input: CSV file with columns: Date, Name, Amount, Status
+> Output: New CSV with only Monday's rows
+>
+> Please use well-documented Python code.
 
 **Example 2: Web Scraping**
-```
-I need a Python script that checks these 5 websites and tells me which ones mention "Red Fire Trucks".
 
-Websites:
-- https://example1.com
-- https://example2.com
-[etc]
+>I need a Python script that checks these 5 websites and tells me which ones mention "Red Fire Trucks".
+>
+>Websites:
+>- https://example1.com
+>- https://example2.com
+>[etc]
+>
+>Output: List showing each URL and whether it contains the phrase
+>
+>Please use well-documented Python code.
 
-Output: List showing each URL and whether it contains the phrase
-
-Please use well-documented Python code.
-```
 
 ## When AI Gives You Code
 
@@ -93,13 +89,11 @@ Please use well-documented Python code.
 
 Copy the ENTIRE error message to AI:
 
-```
-I got this error when running your code:
-
-[PASTE FULL ERROR HERE]
-
-How do I fix this?
-```
+> I got this error when running your code:
+>
+> [PASTE FULL ERROR HERE]
+> 
+> How do I fix this?
 
 ### Common Issues
 
