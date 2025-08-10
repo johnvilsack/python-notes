@@ -7,7 +7,7 @@
    - Click "Terminal (Admin)" 
    - Click "Yes" when asked
 
-> [!INFO]
+> [!NOTE]
 > Windows Terminal is the preferred terminal app. If you don't have it, you can install it from the Microsoft Store. When in the app, you will want to use "PowerShell" as it is the modern, more useful command line.
 
 2. **Install uv Python Manager**
