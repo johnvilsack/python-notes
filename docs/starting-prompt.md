@@ -4,16 +4,14 @@ Pre-seed your conversation with AI. Add your request immediately following it:
 
 ## Example
 
-```
-**PASTE THE PROMPT HERE**
-
-I need a Python script that reads all Excel files in a folder and combines them into one file.
-
-The Excel files have these columns: Date, Customer, Amount, Status
-They're located in C:\Users\MyName\Documents\SalesData\
-
-I want the output to be a single Excel file with all data combined.
-```
+> **PASTE THE PROMPT HERE**
+> 
+> I need a Python script that reads all Excel files in a folder and combines them into one file.
+> 
+> The Excel files have these columns: Date, Customer, Amount, Status
+> They're located in C:\Users\MyName\Documents\SalesData\
+> 
+> I want the output to be a single Excel file with all data combined.
 
 ## How to Use
 
