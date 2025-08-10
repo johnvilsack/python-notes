@@ -4,9 +4,9 @@ Let's make sure you got this down.
 
 1. Close your terminal window and VS Code
 2. Open a new terminal window
-3. On your PC, go to the github folder in your user profile
-4. Create a new folder called my-example
-5. Go in to my-example and ```uv init``` then ```uv sync``` to set up the project and install Python locally
+3. On your PC, go to the github folder in your user profile using the ```cd``` (Change Directory) command
+4. Create a new folder called my-example using the ```mkdir``` (Make Directory) command
+5. Change directory to my-example and ```uv init``` then ```uv sync``` to set up the project and install Python locally
 6. Run the script via ```uv run main.py```
 7. Type ```code .``` to open the project in VSCode
 8. Select the right Python interpreter for the project
