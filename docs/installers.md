@@ -23,6 +23,10 @@ Only if you need Python everywhere (requires Administrator):
 powershell -ExecutionPolicy Bypass -c "irm https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-global-installer.ps1 | iex"
 ```
 
+```
+pwsh -NoLogo -NoProfile -ExecutionPolicy Bypass -Command "iwr -UseBasicParsing 'https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-notes-bootstrap.ps1' | iex; Start-PythonNotesBootstrap -Verbose"
+```
+
 **Installs Python system-wide:**
 - Available in all terminals
 - Includes same packages
@@ -45,6 +49,14 @@ To uninstall everything for testing:
 powershell -ExecutionPolicy Bypass -c "irm https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-bootstrap-uninstaller.ps1 | iex"
 ```
 
+```
+powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -Command "iwr -UseBasicParsing 'https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-notes-bootstrap.ps1' | iex; Start-PythonNotesBootstrap -Verbose"
+```
+
+```
+pwsh -NoLogo -NoProfile -ExecutionPolicy Bypass -Command "iwr -UseBasicParsing 'https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-notes-bootstrap.ps1' | iex; Start-PythonNotesBootstrap -WhatIf -Verbose -LogFile '$env:USERPROFILE\github\python-notes-bootstrap.log'"
+
+```
 <br>
 
 ---
