@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.7.0] - 2025-08-10
+- MINOR: testing changes
+
 ## [3.6.0] - 2025-08-10
 - MINOR: Fully working AIO installer and nuke uninstaller
 

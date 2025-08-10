@@ -13,33 +13,47 @@
 
 ## Add Python Support
 
+Extensions enabled VSCode to work better with whatever you are working on. The Python extensions enables autocompletion, code formatting, error checking, and much more.
+
 1. **Open VSCode**
 
 2. **Install Python Extension**
    - Click Extensions icon on left (looks like 4 squares)
    - Search "Python"
    - Click "Install" on the first result (by Microsoft)
-   - Wait 30 seconds
+   - Wait until finished
 
 ## Open Your Project
 
-1. **Open your HelloPython folder**
+You can open up your project 2 ways. You can open it manually 
+
+1. **Open your python-notes folder in VSCode**
    - File → Open Folder
-   - Navigate to Documents → MyPythonWork → HelloPython
+   - In the sidebar, navigate to This PC → Users → YOURUSERNAME → python-notes
    - Click "Select Folder"
 
 2. **Trust the folder**
    - Click "Yes, I trust the authors" when asked
 
+3. **Save as Workspace**
+   - File → Save Workspace As
+   - When you open this file again, it'll open your python-notes folder with all its settings
+
+> [!TIP]
+> **Open from Terminal** You can open files and folders in the Terminal by typing ```code``` and the file or folder name. If you are in python-notes, you can type ```code .``` and open the workspace immediately. If you just installed VSCode, you might have to restart your terminal.
+
 ## Configure Python
 
 1. **Tell VSCode which Python to use**
+
+   VSCode needs to know which Python to use for your project. uv installed a version specific to this project when you ran the main script the first time, so we will want to point to that.
+
    - Press `Ctrl+Shift+P`
    - Type "Python: Select Interpreter"
-   - Choose the one that mentions "HelloPython"
+   - Choose the one that mentions venv. This is the virtual environment for the project
 
 > [!TIP]
-> **Why?** VSCode needs to know which Python to use for your project.
+> The venv entry should look something like this: ```Python <version number> ('.venv':venv) <path to venv vesion>```
 
 ## Open the Terminal
 

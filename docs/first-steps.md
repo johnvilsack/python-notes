@@ -16,14 +16,17 @@
 
    - Wait for "uv installed successfully"
    - Close and reopen Terminal to enable uv
+   - Type "```uv```" - You should 
 
 ## Initialize Your First Project
 Make sure you are in Powershell. If you are not or unsure, type "```powershell```"
-```powershell
-# Create your project folder
-cd $env:USERPROFILE     # This moves you to your C:\Users\YOURUSERNAME directory
-mkdir python-notes
-cd python-notes
+
+Type these commands in:
+1. ```cd $env:USERPROFILE```: Change to your C:\Users\YOURUSERNAME directory
+2. ```mkdir github\python-notes```: Creates the github directory to store all your projects and a directory for this project called "```python-notes```"
+3. ```cd github\python-notes```: Moves you into the directory you just created
+   
+
 
 # Bootstrap project
 uv init

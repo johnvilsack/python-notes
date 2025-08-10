@@ -56,7 +56,7 @@ Please use well-documented Python code.
 
 ## When AI Gives You Code
 
-1. **Save it as main.py**
+1. **Copy it into the main.py file and save it**
 2. **Check the top of the script for new imports**
 3. **Install any missing packages**:
    ```bash
