@@ -21,10 +21,9 @@
    - Close and reopen Terminal to enable uv
 
 ## Initialize Your First Project
-
+Make sure you are in Powershell. If you are not or unsure, type "```powershell```"
 ```powershell
 # Create your project folder
-(Make sure you are in Powershell. If you are not or unsure, type "powershell")
 cd $env:USERPROFILE     # This moves you to your C:\Users\YOURUSERNAME directory
 mkdir python-notes
 cd python-notes
