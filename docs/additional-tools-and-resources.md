@@ -46,6 +46,7 @@ uv add openpyxl
 
 ## Quick Reference
 
+- **[Basic Terminal Commands](basic-terminal-commands.md)** - Quick guide to some of the most common commands you'll be using
 - **[Python Cheat Sheet](https://www.pythoncheatsheet.org/)** - Quick syntax lookup
 - **[DevDocs](https://devdocs.io/python/)** - Searchable documentation
 - **[Prompts.chat](https://prompts.chat/)** - Tons of AI prompts

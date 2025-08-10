@@ -15,17 +15,15 @@ Let's make sure you got this down.
 11. Copy and paste new script into your project
 12. Run the script from Terminal
 
-## Previous Pages for Reference
+## Pages for Reference
+
+- [Basic Terminal Commands](basic-terminal-commands.md)
 
 - [Install Python](first-steps.md)
 - [Setup Code Editor](editors.md)**
 - [Learn Python Basics](the-basics.md)**
 - [Working with AI](how-to-use-with-ai.md)**
 - [Using Custom Prompts](starting-prompt.md)**
-
-
-
-
 
 <br>
 
