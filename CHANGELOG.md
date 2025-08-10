@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.6.0] - 2025-08-10
+- MINOR: Fully working AIO installer and nuke uninstaller
+
 ## [3.5.1] - 2025-08-09
 - FIX: Line breaks on main page
 
