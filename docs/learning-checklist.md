@@ -72,7 +72,7 @@
 
 <br>
 
-**[← Back to Getting Started Checklist](../getting-started.md)**
+**[← Back to Getting Started Checklist](getting-started.md)**
 
 <br>
 
