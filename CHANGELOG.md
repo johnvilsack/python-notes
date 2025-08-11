@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.11.0] - 2025-08-10
+- MINOR: Fixing final components of installer
+
 ## [3.10.0] - 2025-08-10
 - MINOR: Added terminal commands reference
 

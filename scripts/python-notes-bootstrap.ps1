@@ -56,7 +56,6 @@ function Install-ToolIfMissing {
   )
   if (Get-Command $ExeName -ErrorAction SilentlyContinue) { return "present" }
   if (-not (Test-Winget)) { return "missing (winget unavailable)" }
-
   if ($PSCmdlet.ShouldProcess($FriendlyName, "Install via winget")) {
     winget install --id $WingetId -e --silent --accept-source-agreements --accept-package-agreements | Out-Null
     Start-Sleep -Seconds 3
@@ -109,26 +108,28 @@ function Start-PythonNotesBootstrap {
       Add-PathSession $UserBin
       Set-UserPathPersistent $UserBin
       if (-not (Get-Command uv -ErrorAction SilentlyContinue)) { throw "uv not on PATH" }
-      $v = (uv --version) 2>$null
-      Write-StepResult "[1/6] uv" $true "ready: $v"
+      Write-StepResult "[1/6] uv" $true "ready: $(uv --version)"
     } catch { Write-StepResult "[1/6] uv" $false $_.Exception.Message }
   }
 
-  # [2/6] Project create + venv (uv-managed Python INSIDE project)
-  Invoke-Step -Title "[2/6] Project + venv" -Index (++$i) -Total $total -Action {
+  # [2/6] Project + env (uv-managed Python chosen via requires-python)
+  Invoke-Step -Title "[2/6] Project + env" -Index (++$i) -Total $total -Action {
     try {
       if ($PSCmdlet.ShouldProcess($ProjectPath, "Create directory")) {
         New-Item -ItemType Directory -Force -Path $ProjectPath | Out-Null
       }
       Set-Location $ProjectPath
-      if ($PSCmdlet.ShouldProcess("$ProjectPath", "uv init")) { uv init | Out-Null }
-
-      if ($PSCmdlet.ShouldProcess("$ProjectPath", "Install Python runtime & create .venv")) {
-        uv python install --python latest | Out-Null
-        uv venv .venv | Out-Null
+      if ($PSCmdlet.ShouldProcess("$ProjectPath", "uv init")) {
+        uv init | Out-Null
       }
 
-      if (-not (Test-Path .\.venv\Scripts\python.exe)) { throw "Venv interpreter missing" }
+      # Let uv resolve/download the first compatible Python and create .venv
+      if ($PSCmdlet.ShouldProcess("$ProjectPath", "uv sync (create venv & install deps)")) {
+        uv sync | Out-Null
+      }
+
+      # Verify the interpreter is the project venv, not global
+      if (-not (Test-Path .\.venv\Scripts\python.exe)) { throw ".venv interpreter missing after uv sync" }
 
       if (-not (Test-Path .\main.py)) {
         if ($PSCmdlet.ShouldProcess("main.py", "Create")) {
@@ -137,55 +138,43 @@ print("Hello, python-notes!")
 '@ | Set-Content -NoNewline -Encoding UTF8 .\main.py
         }
       }
-      Write-StepResult "[2/6] Project + venv" $true ".venv ready"
-    } catch { Write-StepResult "[2/6] Project + venv" $false $_.Exception.Message }
+      Write-StepResult "[2/6] Project + env" $true ".venv ready (uv-managed Python per requires-python)"
+    } catch { Write-StepResult "[2/6] Project + env" $false $_.Exception.Message }
   }
 
-  # [3/6] Packages + Playwright browsers
+  # [3/6] Env (packages + browsers)
   Invoke-Step -Title "[3/6] Env (packages + browsers)" -Index (++$i) -Total $total -Action {
     try {
       $pkgs = 'pandas','pydantic','beautifulsoup4','playwright','requests','openpyxl','notebook','ipykernel'
-      if ($PSCmdlet.ShouldProcess(".venv", "uv add")) {
-        uv add $pkgs | Out-Null
-      }
-      if ($PSCmdlet.ShouldProcess("Playwright browsers", "Install")) {
-        uv run python -m playwright install | Out-Null
-      }
+      if ($PSCmdlet.ShouldProcess(".venv", "uv add")) { uv add $pkgs | Out-Null }
+      if ($PSCmdlet.ShouldProcess("Playwright browsers", "Install")) { uv run python -m playwright install | Out-Null }
       Write-StepResult "[3/6] Env" $true "packages + browsers ready"
     } catch { Write-StepResult "[3/6] Env" $false $_.Exception.Message }
   }
 
-  # [4/6] Examples + data + notebook (with fallbacks)
+  # [4/6] Content (examples, data, notebook)
   Invoke-Step -Title "[4/6] Content" -Index (++$i) -Total $total -Action {
     try {
       $repo = "https://raw.githubusercontent.com/johnvilsack/python-notes/main/downloads"
-
-      if ($PSCmdlet.ShouldProcess("examples.py", "Download or write fallback")) {
+      if ($PSCmdlet.ShouldProcess("examples.py", "Download or fallback")) {
         try { Invoke-WebRequest -Uri "$repo/examples.py" -OutFile .\examples.py -UseBasicParsing -ErrorAction Stop }
-        catch {
-@"
+        catch { @"
 # Examples file (fallback)
 print("Run examples to see what each package can do!")
-"@ | Set-Content -Encoding UTF8 .\examples.py
-        }
+"@ | Set-Content -Encoding UTF8 .\examples.py }
       }
-
       if ($PSCmdlet.ShouldProcess("example-data", "Ensure directory")) {
         New-Item -ItemType Directory -Force -Path .\example-data | Out-Null
       }
-
-      if ($PSCmdlet.ShouldProcess("example-employees.csv", "Download or write fallback")) {
+      if ($PSCmdlet.ShouldProcess("example-employees.csv", "Download or fallback")) {
         try { Invoke-WebRequest -Uri "$repo/example-employees.csv" -OutFile .\example-data\example-employees.csv -UseBasicParsing -ErrorAction Stop }
-        catch {
-@"
+        catch { @"
 name,email,department,salary,start_date
 Alice Johnson,alice@company.com,Engineering,95000,2021-03-15
 Bob Smith,bob@company.com,Sales,65000,2022-01-10
 Carol Williams,carol@company.com,Engineering,88000,2020-06-01
-"@ | Set-Content -Encoding UTF8 .\example-data\example-employees.csv
-        }
+"@ | Set-Content -Encoding UTF8 .\example-data\example-employees.csv }
       }
-
       if ($PSCmdlet.ShouldProcess("notebook.ipynb", "Write")) {
 @"
 {
@@ -201,7 +190,6 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
 }
 "@ | Set-Content -Encoding UTF8 .\notebook.ipynb
       }
-
       Write-StepResult "[4/6] Content" $true "examples + data + notebook"
     } catch { Write-StepResult "[4/6] Content" $false $_.Exception.Message }
   }
@@ -215,7 +203,7 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
 
       $CodeBin = Join-Path $env:LOCALAPPDATA 'Programs\Microsoft VS Code\bin'
       Add-PathSession $CodeBin
-      Set-UserPathPersistent $CodeBin  # %LOCALAPPDATA%\Programs\Microsoft VS Code\bin contains code.cmd. :contentReference[oaicite:6]{index=6}
+      Set-UserPathPersistent $CodeBin
 
       if (Get-Command code -ErrorAction SilentlyContinue) {
         if ($PSCmdlet.ShouldProcess("VS Code", "Install Python & Jupyter extensions")) {
@@ -229,19 +217,16 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
     } catch { Write-StepResult "[5/6] Tools" $false $_.Exception.Message }
   }
 
-  # [6/6] VS Code config + open (auto-open integrated terminal; make 'code' work inside it)
+  # [6/6] VS Code (terminal auto-open; make `code` work in it; default Windows shell)
   Invoke-Step -Title "[6/6] VS Code" -Index (++$i) -Total $total -Action {
     try {
       if ($PSCmdlet.ShouldProcess(".vscode", "Ensure directory")) {
         New-Item -ItemType Directory -Force -Path .\.vscode | Out-Null
       }
       $venvPy = ".\\.venv\\Scripts\\python.exe"
-
-      # VS Code CLI bin path to inject in terminal PATH
       $CodeBin = Join-Path $env:LOCALAPPDATA 'Programs\Microsoft VS Code\bin'
       $termPathPatch = if (Test-Path -LiteralPath $CodeBin) { "$CodeBin;`$\{env:PATH}" } else { "`$\{env:PATH}" }
 
-      # Settings: interpreter, terminal cwd, persistent sessions, allow automatic tasks, PATH injection for integrated terminal
       if ($PSCmdlet.ShouldProcess(".vscode\\settings.json", "Write")) {
         @{
           "python.defaultInterpreterPath"                 = $venvPy
@@ -249,11 +234,12 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
           "terminal.integrated.cwd"                       = '${workspaceFolder}'
           "terminal.integrated.enablePersistentSessions"  = $true
           "task.allowAutomaticTasks"                      = "on"
-          "terminal.integrated.env.windows"               = @{ "PATH" = $termPathPatch }  # ensure 'code' exists in panel immediately. :contentReference[oaicite:7]{index=7}
+          "terminal.integrated.env.windows"               = @{ "PATH" = $termPathPatch }
+          "terminal.integrated.defaultProfile.windows"    = "PowerShell"
+          "terminal.explorerKind"                         = "integrated"
         } | ConvertTo-Json -Depth 5 | Set-Content -Encoding UTF8 .\.vscode\settings.json
       }
 
-      # Auto-open terminal on folder open
       if ($PSCmdlet.ShouldProcess(".vscode\\tasks.json", "Write auto-open terminal task")) {
 @"
 {
@@ -262,12 +248,7 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
     {
       "label": "Open Terminal (on folder open)",
       "type": "shell",
-      "options": {
-        "shell": {
-          "executable": "powershell.exe",
-          "args": ["-NoLogo","-NoProfile","-NoExit","-Command"]
-        }
-      },
+      "options": { "shell": { "executable": "powershell.exe", "args": ["-NoLogo","-NoProfile","-NoExit","-Command"] } },
       "command": "Write-Host 'Terminal ready';",
       "runOptions": { "runOn": "folderOpen" },
       "presentation": { "reveal": "always", "panel": "shared", "focus": true }
@@ -276,9 +257,7 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
 }
 "@ | Set-Content -Encoding UTF8 .\.vscode\tasks.json
       }
-      # runOn:"folderOpen" triggers on open; allowAutomaticTasks enables it without extra prompts in trusted workspaces. :contentReference[oaicite:8]{index=8}
 
-      # Workspace file (same settings replicated)
       $ws = @{
         "folders"  = @(@{"path"="."});
         "settings" = @{
@@ -288,6 +267,8 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
           "terminal.integrated.enablePersistentSessions"  = $true
           "task.allowAutomaticTasks"                      = "on"
           "terminal.integrated.env.windows"               = @{ "PATH" = $termPathPatch }
+          "terminal.integrated.defaultProfile.windows"    = "PowerShell"
+          "terminal.explorerKind"                         = "integrated"
         }
       } | ConvertTo-Json -Depth 5
 
@@ -305,24 +286,22 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
         Write-Warning "VS Code installed but 'code' CLI not yet visible in THIS shell; new terminals will see it, or run: `$env:Path += ';$CodeBin'"
       }
 
-      # Final clarity: old external consoles won't get new PATH until restarted (Windows process model).
-      Write-Host "Note: Your original terminal may not see the updated PATH. If 'code' isn't recognized there, close and reopen that terminal." -ForegroundColor DarkYellow
-
-      Write-StepResult "[6/6] VS Code" $true "workspace ready (terminal auto-opens; PATH patched for 'code')"
+      Write-StepResult "[6/6] VS Code" $true "workspace ready (terminal auto-opens; PATH patched in panel)"
     } catch { Write-StepResult "[6/6] VS Code" $false $_.Exception.Message }
   }
 
   Write-Progress -Activity "python-notes bootstrap" -Completed -Id 1
-
   Write-Host ""
   $Results | Format-Table -AutoSize
+
+  # Reminder about the external console's PATH
+  Write-Host "Note: Your original terminal won't inherit new PATH values. If 'code' isn't recognized there, close and reopen that terminal." -ForegroundColor DarkYellow
 
   if ($PSBoundParameters.ContainsKey('LogFile')) {
     try { Stop-Transcript | Out-Null } catch {}
   }
 }
 
-# Auto-run when executed as a file; when piped via | iex, call Start-PythonNotesBootstrap [...]
 if ($MyInvocation.InvocationName -ne '.') {
   Start-PythonNotesBootstrap -ProjectPath $ProjectPath -SkipVSCodeOpen:$SkipVSCodeOpen
 }
