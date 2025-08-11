@@ -116,21 +116,25 @@ function Start-PythonNotesBootstrap {
   Invoke-Step -Title "[2/6] Project + env" -Index (++$i) -Total $total -Action {
     try {
       if ($PSCmdlet.ShouldProcess($ProjectPath, "Create directory")) {
-        New-Item -ItemType Directory -Force -Path $ProjectPath | Out-Null
+        Read-Host "Setting Path"
+        New-Item -ItemType Directory -Force -Path $ProjectPath
       }
       Set-Location $ProjectPath
       if ($PSCmdlet.ShouldProcess("$ProjectPath", "uv init")) {
-        uv init | Out-Null
+        Read-Host "uv init"
+        uv init
       }
 
       # Let uv resolve/download the first compatible Python and create .venv
       if ($PSCmdlet.ShouldProcess("$ProjectPath", "uv sync (create venv & install deps)")) {
-        uv sync | Out-Null
+        Read-Host "uv sync"
+        uv sync
       }
 
       # Verify the interpreter is the project venv, not global
+      Read-Host "Verify interpreter"
       if (-not (Test-Path .\.venv\Scripts\python.exe)) { throw ".venv interpreter missing after uv sync" }
-
+      Read-Host "Process main.py"
       if (-not (Test-Path .\main.py)) {
         if ($PSCmdlet.ShouldProcess("main.py", "Create")) {
 @'
