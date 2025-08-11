@@ -124,7 +124,6 @@ function Start-PythonNotesBootstrap {
       if ($PSCmdlet.ShouldProcess("$ProjectPath", "uv init with latest Python")) {
         uv init --python ">=3.12"
         uv python install --managed-python
-        Read-Host "Init and installed python"
       }
 
       # uv sync will now download/use the uv-managed Python

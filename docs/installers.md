@@ -4,59 +4,44 @@ Skip setup. Start coding.
 
 ## All-in-One Bootstrap
 
+1. Right-click the Start button
+2. Select 'Terminal'
+3. Copy the code below
+4. Paste it into the Terminal
+5. Hit Enter
+
 ```powershell
 powershell -ExecutionPolicy Bypass -c "irm https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-notes-bootstrap.ps1 | iex"
 ```
 
-**Creates complete workspace in ~/Documents/python-notes:**
+**Creates complete workspace in C:\Users\YOURUSERNAME\github\python-notes:**
 - uv + Python + all packages
 - VSCode with extensions
 - Example scripts and data
-- Opens everything ready to use
+- Opens everything ready-to-use
 
-## Global Python Install
+<br>
 
-Only if you need Python everywhere (requires Administrator):
+---
+
+<br>
+
+## Uninstaller
+Uninstall everything installed by the All-in-One Bootstrap
+
+```powershell
+powershell -ExecutionPolicy Bypass -c "irm https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-bootstrap-uninstaller.ps1 | iex"
+```
+
+## EXTRA: Python Install
+
+If you need Python everywhere on your computer (requires Administrator):
 
 ```powershell
 # Run as Administrator
 powershell -ExecutionPolicy Bypass -c "irm https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-global-installer.ps1 | iex"
 ```
 
-```
-pwsh -NoLogo -NoProfile -ExecutionPolicy Bypass -Command "iwr -UseBasicParsing 'https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-notes-bootstrap.ps1' | iex; Start-PythonNotesBootstrap -Verbose"
-```
-
-**Installs Python system-wide:**
-- Available in all terminals
-- Includes same packages
-- For multiple projects
-
-## Which One?
-
-**Bootstrap** = Following this tutorial  
-**Global** = Multiple Python projects
-
-## Addendum
-To run a test version of the AIO, run:
-
-```powershell
-powershell -ExecutionPolicy Bypass -c "irm 'https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-notes-bootstrap.ps1'; iex; Start-PythonNotesBootstrap -WhatIf -Verbose -LogFile '$env:USERPROFILE\github\python-notes-bootstrap.log'"
-```
-
-To uninstall everything for testing:
-```powershell
-powershell -ExecutionPolicy Bypass -c "irm https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-bootstrap-uninstaller.ps1 | iex"
-```
-
-```
-powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -Command "iwr -UseBasicParsing 'https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-notes-bootstrap.ps1' | iex; Start-PythonNotesBootstrap -Verbose"
-```
-
-```
-pwsh -NoLogo -NoProfile -ExecutionPolicy Bypass -Command "iwr -UseBasicParsing 'https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-notes-bootstrap.ps1' | iex; Start-PythonNotesBootstrap -WhatIf -Verbose -LogFile '$env:USERPROFILE\github\python-notes-bootstrap.log'"
-
-```
 <br>
 
 ---

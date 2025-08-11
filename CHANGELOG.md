@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.13.0] - 2025-08-10
+- MINOR: Added installers to front page and cleaned up installers.md
+
 ## [3.12.0] - 2025-08-10
 - MINOR: Fixed installer with managed versions
 
