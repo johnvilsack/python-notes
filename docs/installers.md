@@ -20,6 +20,9 @@ powershell -ExecutionPolicy Bypass -c "irm https://raw.githubusercontent.com/joh
 - Example scripts and data
 - Opens everything ready-to-use
 
+> [!NOTE]
+> You can now bypass the setup and get started with ## **[Python Basics](the-basics.md)**
+
 <br>
 
 ---
@@ -32,6 +35,11 @@ Uninstall everything installed by the All-in-One Bootstrap
 ```powershell
 powershell -ExecutionPolicy Bypass -c "irm https://raw.githubusercontent.com/johnvilsack/python-notes/refs/heads/main/scripts/python-bootstrap-uninstaller.ps1 | iex"
 ```
+<br>
+
+---
+
+<br>
 
 ## EXTRA: Python Install
 
