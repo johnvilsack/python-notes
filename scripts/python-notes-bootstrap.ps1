@@ -112,37 +112,40 @@ function Start-PythonNotesBootstrap {
     } catch { Write-StepResult "[1/6] uv" $false $_.Exception.Message }
   }
 
-  # [2/6] Project + env (uv-managed Python chosen via requires-python)
+  # [2/6] Project + env (uv-managed Python - latest version)
   Invoke-Step -Title "[2/6] Project + env" -Index (++$i) -Total $total -Action {
     try {
       if ($PSCmdlet.ShouldProcess($ProjectPath, "Create directory")) {
-        Read-Host "Setting Path"
-        New-Item -ItemType Directory -Force -Path $ProjectPath
+        New-Item -ItemType Directory -Force -Path $ProjectPath | Out-Null
       }
       Set-Location $ProjectPath
-      if ($PSCmdlet.ShouldProcess("$ProjectPath", "uv init")) {
-        Read-Host "uv init"
-        uv init
+      
+      # Use --python 3 to get latest Python 3.x that uv supports
+      if ($PSCmdlet.ShouldProcess("$ProjectPath", "uv init with latest Python")) {
+        uv init --python ">=3.12"
+        Read-Host "Initted"
       }
 
-      # Let uv resolve/download the first compatible Python and create .venv
+      # uv sync will now download/use the uv-managed Python
       if ($PSCmdlet.ShouldProcess("$ProjectPath", "uv sync (create venv & install deps)")) {
-        Read-Host "uv sync"
         uv sync
+        Read-Host "Synced"
       }
 
       # Verify the interpreter is the project venv, not global
-      Read-Host "Verify interpreter"
-      if (-not (Test-Path .\.venv\Scripts\python.exe)) { throw ".venv interpreter missing after uv sync" }
-      Read-Host "Process main.py"
+      if (-not (Test-Path .\.venv\Scripts\python.exe)) { 
+        throw ".venv interpreter missing after uv sync" 
+      }
+      
+      # Get actual Python version for reporting
+      $pyVersion = & .\.venv\Scripts\python.exe --version 2>&1
+      
       if (-not (Test-Path .\main.py)) {
         if ($PSCmdlet.ShouldProcess("main.py", "Create")) {
-@'
-print("Hello, python-notes!")
-'@ | Set-Content -NoNewline -Encoding UTF8 .\main.py
+          'print("Hello, python-notes!")' | Set-Content -NoNewline -Encoding UTF8 .\main.py
         }
       }
-      Write-StepResult "[2/6] Project + env" $true ".venv ready (uv-managed Python per requires-python)"
+      Write-StepResult "[2/6] Project + env" $true ".venv ready (uv-managed $pyVersion)"
     } catch { Write-StepResult "[2/6] Project + env" $false $_.Exception.Message }
   }
 
@@ -150,8 +153,12 @@ print("Hello, python-notes!")
   Invoke-Step -Title "[3/6] Env (packages + browsers)" -Index (++$i) -Total $total -Action {
     try {
       $pkgs = 'pandas','pydantic','beautifulsoup4','playwright','requests','openpyxl','notebook','ipykernel'
-      if ($PSCmdlet.ShouldProcess(".venv", "uv add")) { uv add $pkgs | Out-Null }
-      if ($PSCmdlet.ShouldProcess("Playwright browsers", "Install")) { uv run python -m playwright install | Out-Null }
+      if ($PSCmdlet.ShouldProcess(".venv", "uv add packages")) { 
+        uv add $pkgs | Out-Null 
+      }
+      if ($PSCmdlet.ShouldProcess("Playwright browsers", "Install")) { 
+        uv run python -m playwright install | Out-Null 
+      }
       Write-StepResult "[3/6] Env" $true "packages + browsers ready"
     } catch { Write-StepResult "[3/6] Env" $false $_.Exception.Message }
   }
@@ -161,26 +168,34 @@ print("Hello, python-notes!")
     try {
       $repo = "https://raw.githubusercontent.com/johnvilsack/python-notes/main/downloads"
       if ($PSCmdlet.ShouldProcess("examples.py", "Download or fallback")) {
-        try { Invoke-WebRequest -Uri "$repo/examples.py" -OutFile .\examples.py -UseBasicParsing -ErrorAction Stop }
-        catch { @"
+        try { 
+          Invoke-WebRequest -Uri "$repo/examples.py" -OutFile .\examples.py -UseBasicParsing -ErrorAction Stop 
+        }
+        catch { 
+          @"
 # Examples file (fallback)
 print("Run examples to see what each package can do!")
-"@ | Set-Content -Encoding UTF8 .\examples.py }
+"@ | Set-Content -Encoding UTF8 .\examples.py 
+        }
       }
       if ($PSCmdlet.ShouldProcess("example-data", "Ensure directory")) {
         New-Item -ItemType Directory -Force -Path .\example-data | Out-Null
       }
       if ($PSCmdlet.ShouldProcess("example-employees.csv", "Download or fallback")) {
-        try { Invoke-WebRequest -Uri "$repo/example-employees.csv" -OutFile .\example-data\example-employees.csv -UseBasicParsing -ErrorAction Stop }
-        catch { @"
+        try { 
+          Invoke-WebRequest -Uri "$repo/example-employees.csv" -OutFile .\example-data\example-employees.csv -UseBasicParsing -ErrorAction Stop 
+        }
+        catch { 
+          @"
 name,email,department,salary,start_date
 Alice Johnson,alice@company.com,Engineering,95000,2021-03-15
 Bob Smith,bob@company.com,Sales,65000,2022-01-10
 Carol Williams,carol@company.com,Engineering,88000,2020-06-01
-"@ | Set-Content -Encoding UTF8 .\example-data\example-employees.csv }
+"@ | Set-Content -Encoding UTF8 .\example-data\example-employees.csv 
+        }
       }
       if ($PSCmdlet.ShouldProcess("notebook.ipynb", "Write")) {
-@"
+        @"
 {
   "cells": [
     {"cell_type":"markdown","metadata":{},"source":["# Python Notes — Quick Start","","Run cells with Shift+Enter"]},
@@ -198,12 +213,12 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
     } catch { Write-StepResult "[4/6] Content" $false $_.Exception.Message }
   }
 
-  # [5/6] Tools via winget; ensure code CLI on PATH; install extensions
+  # [5/6] Tools via winget
   Invoke-Step -Title "[5/6] Tools" -Index (++$i) -Total $total -Action {
     try {
-      $gitStatus = Install-ToolIfMissing -ExeName 'git.exe'   -WingetId 'Git.Git'                    -FriendlyName 'Git'
-      $vscStatus = Install-ToolIfMissing -ExeName 'code.cmd'  -WingetId 'Microsoft.VisualStudioCode' -FriendlyName 'Visual Studio Code'
-      $ghdStatus = Install-ToolIfMissing -ExeName 'github'    -WingetId 'GitHub.GitHubDesktop'       -FriendlyName 'GitHub Desktop'
+      $gitStatus = Install-ToolIfMissing -ExeName 'git.exe'  -WingetId 'Git.Git'                    -FriendlyName 'Git'
+      $vscStatus = Install-ToolIfMissing -ExeName 'code.cmd' -WingetId 'Microsoft.VisualStudioCode' -FriendlyName 'Visual Studio Code'
+      $ghdStatus = Install-ToolIfMissing -ExeName 'github'   -WingetId 'GitHub.GitHubDesktop'       -FriendlyName 'GitHub Desktop'
 
       $CodeBin = Join-Path $env:LOCALAPPDATA 'Programs\Microsoft VS Code\bin'
       Add-PathSession $CodeBin
@@ -221,7 +236,7 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
     } catch { Write-StepResult "[5/6] Tools" $false $_.Exception.Message }
   }
 
-  # [6/6] VS Code (terminal auto-open; make `code` work in it; default Windows shell)
+  # [6/6] VS Code configuration
   Invoke-Step -Title "[6/6] VS Code" -Index (++$i) -Total $total -Action {
     try {
       if ($PSCmdlet.ShouldProcess(".vscode", "Ensure directory")) {
@@ -245,7 +260,7 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
       }
 
       if ($PSCmdlet.ShouldProcess(".vscode\\tasks.json", "Write auto-open terminal task")) {
-@"
+        @"
 {
   "version": "2.0.0",
   "tasks": [
@@ -298,7 +313,7 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
   Write-Host ""
   $Results | Format-Table -AutoSize
 
-  # Reminder about the external console's PATH
+  # Reminder about PATH
   Write-Host "Note: Your original terminal won't inherit new PATH values. If 'code' isn't recognized there, close and reopen that terminal." -ForegroundColor DarkYellow
 
   if ($PSBoundParameters.ContainsKey('LogFile')) {
