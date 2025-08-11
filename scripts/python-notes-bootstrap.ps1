@@ -308,7 +308,7 @@ Carol Williams,carol@company.com,Engineering,88000,2020-06-01
   $Results | Format-Table -AutoSize
 
   # Reminder about PATH
-  Write-Host "Note: Your original terminal won't inherit new PATH values. If 'code' isn't recognized there, close and reopen that terminal." -ForegroundColor DarkYellow
+  Write-Host "Install complete. Please restart Terminal" -ForegroundColor DarkYellow
 
   if ($PSBoundParameters.ContainsKey('LogFile')) {
     try { Stop-Transcript | Out-Null } catch {}
