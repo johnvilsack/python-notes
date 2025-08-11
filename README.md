@@ -31,7 +31,7 @@ You tell AI what you want. AI writes Python code. You run it. Problems get solve
 
 <br> 
 
-> [!WARNING] 
+> [!NOTE] 
 > Want to skip the setup tutorial and start coding right away? Go to **[Quick Setup](docs/installers.md)** and automatically install and configure everything in 1 click.
 
 
