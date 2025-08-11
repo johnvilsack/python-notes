@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.12.0] - 2025-08-10
+- MINOR: Fixed installer with managed versions
+
 ## [3.11.0] - 2025-08-10
 - MINOR: Fixing final components of installer
 

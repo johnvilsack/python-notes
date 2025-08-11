@@ -123,14 +123,13 @@ function Start-PythonNotesBootstrap {
       # Use --python 3 to get latest Python 3.x that uv supports
       if ($PSCmdlet.ShouldProcess("$ProjectPath", "uv init with latest Python")) {
         uv init --python ">=3.12"
-        uv init install --managed-python
-        Read-Host "Initted"
+        uv python install --managed-python
+        Read-Host "Init and installed python"
       }
 
       # uv sync will now download/use the uv-managed Python
       if ($PSCmdlet.ShouldProcess("$ProjectPath", "uv sync (create venv & install deps)")) {
         uv sync
-        Read-Host "Synced"
       }
 
       # Verify the interpreter is the project venv, not global
@@ -141,11 +140,6 @@ function Start-PythonNotesBootstrap {
       # Get actual Python version for reporting
       $pyVersion = & .\.venv\Scripts\python.exe --version 2>&1
       
-      if (-not (Test-Path .\main.py)) {
-        if ($PSCmdlet.ShouldProcess("main.py", "Create")) {
-          'print("Hello, python-notes!")' | Set-Content -NoNewline -Encoding UTF8 .\main.py
-        }
-      }
       Write-StepResult "[2/6] Project + env" $true ".venv ready (uv-managed $pyVersion)"
     } catch { Write-StepResult "[2/6] Project + env" $false $_.Exception.Message }
   }
