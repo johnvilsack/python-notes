@@ -123,6 +123,7 @@ function Start-PythonNotesBootstrap {
       # Use --python 3 to get latest Python 3.x that uv supports
       if ($PSCmdlet.ShouldProcess("$ProjectPath", "uv init with latest Python")) {
         uv init --python ">=3.12"
+        uv init install --managed-python
         Read-Host "Initted"
       }
 
