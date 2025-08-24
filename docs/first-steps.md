@@ -28,7 +28,7 @@ Type these commands in:
 1. ```cd $env:USERPROFILE```: Change to your C:\Users\YOURUSERNAME directory
 2. ```mkdir github\python-notes```: Creates the github directory to store all your projects and a directory for this project called "```python-notes```"
 3. ```cd github\python-notes```: Moves you into the directory you just created
-4. ```uv init```: Initializes the project with metadata files it will need
+4. ```uv init --python latest```: Initializes the project with metadata files it will need
 5. ```uv sync```: Creates the virtual environment and installs Python
 6. ```uv run main.py```: Runs the python script main.py
 
